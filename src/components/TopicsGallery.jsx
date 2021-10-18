@@ -5,6 +5,7 @@ import { getTopics }  from "../utils/api.js"
 
 const TopicsGallery = () => {
 const [topics, setTopics] = useState([]);
+const [selectedTopic, setSelectedTopic] = useState("")
 const [isError, setIsError] = useState(false);
 const history = useHistory();
 
@@ -19,6 +20,13 @@ useEffect( () => {
       });
 }, [])
 
+useEffect(() => {
+    if (selectedTopic.length > 0) {
+    history.push(`/articles/${selectedTopic}`)
+    }
+    setSelectedTopic('');
+  }, [selectedTopic, history]);
+
 
     return (
         <section className="TopicsGallery">
@@ -28,7 +36,10 @@ useEffect( () => {
             <ul>
               {topics.map((topic) => {
                 return (
-                    <li key={topic.slug} >
+                    <li key={topic.slug}
+                    onClick={((e) => {
+                        setSelectedTopic(topic.slug)
+                    })} >
                         <img 
                           src={`/images/${topic.slug}.jpg`}
                           onError={((e) => {
