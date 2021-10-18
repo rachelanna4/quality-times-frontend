@@ -1,7 +1,8 @@
 import "./App.css";
-import { Switch, Route } from "react-router-doms";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import LatestNews from "./components/LatestNews";
 import TopicsGallery from "./components/TopicsGallery";
 import Articles from "./components/Articles";
 import SingleArticle from "./components/Articles";
@@ -16,6 +17,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/">
+          <LatestNews />
           <TopicsGallery />
         </Route>
         <Route exact path="/articles">
