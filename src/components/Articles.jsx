@@ -1,6 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { getArticles } from '../utils/api'; 
@@ -9,6 +8,7 @@ const Articles = () => {
 const [allArticles, setAllArticles] = useState([])
 const [isError, setIsError] = useState(false);
 const { topic } = useParams();
+const history = useHistory();
 
 useEffect(() => {
     setIsError(false);
@@ -22,6 +22,7 @@ useEffect(() => {
 }, [topic] )
 
 
+
     return (
             <section className="ArticlesList">
                 {isError ? (
@@ -32,7 +33,12 @@ useEffect(() => {
                       <Card.Text>
                         Please try again later 
                       </Card.Text>
-                      <Button className="Card_button" variant="primary">Go back home</Button>
+                      <Button className="Card_button" 
+                              variant="primary"
+                              onClick={((e) =>{
+                                history.push("/")
+                              })}
+                      >Go back home</Button>
                     </Card.Body>
                   </Card>
                 ) : (
