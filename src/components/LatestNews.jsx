@@ -17,7 +17,7 @@ useEffect(() => {
 )}, [])
 
 useEffect(() => {
-    if (selectedArticle.length > 0) {
+    if (selectedArticle) {
     history.push(`/articles/${selectedArticle}`)
     }
     setSelectedArticle('');
@@ -30,17 +30,16 @@ useEffect(() => {
            {latestNews.map((article) => {
               return (
                   <Carousel.Item key={article.article_id}
-                    >
-                    <img
+                                 onClick={(e) => {
+                                         setSelectedArticle(article.article_id)
+                                         }}>
+                     <img
                         src="./images/latest-news.png"
                         alt={article.article_id}
                         className="LatestNews_img"
                     />
                     <Carousel.Caption className="LatestNews_caption">
-                        <h3 onClick={(e) => {
-                            console.log('selected article');
-                        setSelectedArticle(article.article_id)
-                    }}>{article.title}</h3>
+                        <h3>{article.title}</h3>
                         <p>Written by: {article.author}</p>
                     </Carousel.Caption>
                   </Carousel.Item>
