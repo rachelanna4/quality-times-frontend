@@ -7,14 +7,19 @@ import Carousel from 'react-bootstrap/Carousel'
 const LatestNews = () => {
 const [latestNews, setLatestNews] = useState([])
 const [selectedArticle, setSelectedArticle] = useState("")
+const [isError, setIsError] = useState(false);
 const history = useHistory();
 
 useEffect(() => {
+    setIsError(false);
     getArticles({sort_by: "created_at"}, {order: "desc"}, {limit: 3})
     .then((articlesFromApi) => {
         setLatestNews(articlesFromApi)
-    }
-)}, [])
+    })
+    .catch(() => {
+        setIsError(true);
+      });
+    }, [])
 
 useEffect(() => {
     if (selectedArticle) {
@@ -24,6 +29,22 @@ useEffect(() => {
   }, [selectedArticle, history]);
 
     return (
+        <section className="LatestNews">
+        {isError ? (
+            <Carousel className="Carousel">
+               <Carousel.Item>
+                    <img
+                    src="./images/latest-news.png"
+                    alt="Oops something went wrong"
+                    className="LatestNews_img"
+                    />
+               <Carousel.Caption className="LatestNews_caption">
+                     <h3>Sorry we can't display the latest news right now</h3>
+                     <p>Try again later</p>
+                </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+          ) : (
         <section className="LatestNews">
             <h3> <span className="LatestNews_span-red">Latest</span><span className="LatestNews_span-blue">News!</span></h3>
           <Carousel className="Carousel">
@@ -46,8 +67,11 @@ useEffect(() => {
                 )
             })}
           </Carousel>
-        </section>
-    )
+        </section>   
+     )
+    }
+    </section>
+    ) 
 };
 
 export default LatestNews;
