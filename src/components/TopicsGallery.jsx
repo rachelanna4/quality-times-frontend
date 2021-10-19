@@ -28,7 +28,7 @@ useEffect(() => {
 
 
     return (
-        <section>
+        <section className="TopicsGallery">
           {isError ? (
             <p>Oops! Something went wrong.</p>
           ) : (
