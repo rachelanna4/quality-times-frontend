@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getTopics }  from "../utils/api.js"
 
@@ -29,17 +28,20 @@ useEffect(() => {
 
 
     return (
-        <section className="TopicsGallery">
+        <section>
           {isError ? (
             <p>Oops! Something went wrong.</p>
           ) : (
+            <section className="TopicsGallery">
+            <h3>Browse topics:</h3>
             <ul>
               {topics.map((topic) => {
                 return (
                     <li key={topic.slug}
-                    onClick={((e) => {
+                        onClick={((e) => {
                         setSelectedTopic(topic.slug)
                     })} >
+                      <section className="TopicsGallery_container">
                         <img 
                           src={`/images/${topic.slug}.jpg`}
                           onError={((e) => {
@@ -47,10 +49,12 @@ useEffect(() => {
                             })}
                           alt={topic.slug}></img>
                         <h3>{topic.slug}</h3>
+                      </section>
                     </li> 
                 )
               })}
             </ul>
+            </section>
         )}
         </section>
     );
