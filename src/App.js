@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/articles">
           <Articles />
         </Route>
-        <Route exact path="/articles/topics/:topic_slug">
+        <Route exact path="/articles/topics/:topic">
           <Articles />
         </Route>
         <Route exact path="/articles/:article_id">
