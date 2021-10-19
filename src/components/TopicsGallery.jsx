@@ -21,7 +21,7 @@ useEffect( () => {
 
 useEffect(() => {
     if (selectedTopic.length > 0) {
-    history.push(`/articles/${selectedTopic}`)
+    history.push(`/articles/topics/${selectedTopic}`)
     }
     setSelectedTopic('');
   }, [selectedTopic, history]);
