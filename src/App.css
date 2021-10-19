@@ -166,33 +166,79 @@ h1 {
   width: 100%;
 }
 
+.ArticlesList > ul {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
 .Card {
+  margin: 20px 0;
+  border: 1px solid #495867;
   width: 80%;
   text-align: center;
 }
 
+.Card_body {
+  padding: 0;
+}
+
+.Card_img {
+  height: 100px;
+}
+
+.Card_overlay {
+  display: flex;
+  justify-content: center;
+}
+
 .Card_title {
-  position: absolute;
-  width: 80%;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
   font-family: "Playfair Display", serif;
   font-size: 1.1em;
   color: #f7f7ff;
 }
 
-.Card_img {
-  height: 125px;
+.Card_topic {
+  text-align: left;
+  padding: 2px 5px;
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: #bdd5ea;
+}
+
+.Card_topic-cooking {
+  background-color: #d88c9a;
+}
+
+.Card_topic-coding {
+  background-color: #99c1b9;
+}
+
+.Card_topic-football {
+  background-color: #f2d0a9;
+}
+
+.Card_intro,
+.Card_author {
+  margin-left: 10px;
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.Card_author-icon {
+  color: #495867;
 }
 
 .Card_button {
   background-color: #fe5f55;
   border: none;
   border-radius: 30px;
-  margin: 0 auto;
-  font-size: 0.8em;
+  margin-bottom: 16px;
+  font-size: 0.7em;
   font-weight: 600;
 }
 

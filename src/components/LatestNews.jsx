@@ -34,7 +34,7 @@ useEffect(() => {
             <Carousel className="Carousel">
                <Carousel.Item>
                     <img
-                    src="./images/latest-news.png"
+                    src="./images/background1.png"
                     alt="Oops something went wrong"
                     className="LatestNews_img"
                     />
@@ -55,7 +55,7 @@ useEffect(() => {
                                          setSelectedArticle(article.article_id)
                                          }}>
                      <img
-                        src="./images/latest-news.png"
+                        src="./images/background1.png"
                         alt={article.article_id}
                         className="LatestNews_img"
                     />
