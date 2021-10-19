@@ -1,5 +1,6 @@
-* {
+body {
   font-family: "Montserrat", serif;
+  background-color: #f7f7ff;
 }
 
 .Header {
@@ -23,16 +24,28 @@ h1 {
 }
 
 .Nav {
-  display: flex;
-  justify-content: space-evenly;
   padding: 5px 10px;
   background-color: #fe5f55;
   width: 100%;
 }
 
-.Nav > * {
+.Nav_links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Nav_links > * {
   color: #f7f7ff;
   text-decoration: none;
+  padding: 0 10px;
+  border-radius: 30px;
+}
+
+.Nav_links > *:hover {
+  color: #495867;
+
+  background-color: #f7f7ff;
+  font-weight: 600;
 }
 
 .LatestNews {
@@ -45,13 +58,13 @@ h1 {
   font-size: 0.6em;
   font-style: italic;
   font-weight: 800;
-  padding: 3px 5px;
+  padding: 3px 10px;
 }
 
 .LatestNews_span-red {
   background-color: #fe5f55;
   border: 3px solid #fe5f55;
-  color: white;
+  color: #f7f7ff;
   margin-right: 0;
 }
 
@@ -59,7 +72,11 @@ h1 {
   margin-left: 0;
   background-color: #495867;
   border: 3px solid #495867;
-  color: white;
+  color: #f7f7ff;
+}
+
+.Carousel {
+  cursor: pointer;
 }
 
 .LatestNews_img {
@@ -69,7 +86,7 @@ h1 {
 }
 
 .LatestNews_caption {
-  padding-top: 0;
+  padding-top: 10px;
   padding-bottom: 0;
 }
 
@@ -107,6 +124,7 @@ h1 {
 .TopicsGallery_container {
   position: relative;
   margin: 5px 0 10px 0;
+  cursor: pointer;
 }
 
 .TopicsGallery_container > img {
@@ -124,11 +142,11 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: #f7f7ff;
   opacity: 0.85;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 750px) {
   h1 {
     font-size: 3em;
   }

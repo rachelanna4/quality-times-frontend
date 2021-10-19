@@ -26,7 +26,7 @@ useEffect(() => {
     return (
         <section className="LatestNews">
             <h3> <span className="LatestNews_span-red">Latest</span><span className="LatestNews_span-blue">News!</span></h3>
-          <Carousel>
+          <Carousel className="Carousel">
            {latestNews.map((article) => {
               return (
                   <Carousel.Item key={article.article_id}
