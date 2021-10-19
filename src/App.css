@@ -3,6 +3,8 @@ body {
   background-color: #f7f7ff;
 }
 
+/* Header */
+
 .Header {
   padding-top: 10px;
   padding-bottom: 5px;
@@ -22,6 +24,8 @@ h1 {
   font-size: 0.8em;
   color: #f7f7ff;
 }
+
+/* Navbar */
 
 .Nav {
   padding: 5px 10px;
@@ -48,6 +52,8 @@ h1 {
   background-color: #f7f7ff;
   font-weight: 600;
 }
+
+/* Homepage */
 
 .LatestNews {
   margin: 20px auto;
@@ -149,6 +155,53 @@ h1 {
   background-color: #f7f7ff;
   opacity: 0.85;
 }
+
+/* Articles Page */
+
+.ArticlesList {
+  margin: 20px auto;
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+
+.Card {
+  width: 80%;
+  text-align: center;
+}
+
+.Card_title {
+  position: absolute;
+  width: 80%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1em;
+  color: #f7f7ff;
+}
+
+.Card_img {
+  height: 125px;
+}
+
+.Card_button {
+  background-color: #fe5f55;
+  border: none;
+  border-radius: 30px;
+  margin: 0 auto;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.Card_button:hover {
+  color: #495867;
+  background-color: #bdd5ea;
+}
+
+/* Media Queries  */
 
 @media screen and (min-width: 750px) {
   h1 {
