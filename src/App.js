@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import LatestNews from "./components/LatestNews";
 import TopicsGallery from "./components/TopicsGallery";
 import Articles from "./components/Articles";
-import SingleArticle from "./components/Articles";
+import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
 import PostComment from "./components/PostComment";
 import EditComment from "./components/EditComment";
