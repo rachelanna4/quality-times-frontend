@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import { getArticles } from '../utils/api';
 import Carousel from 'react-bootstrap/Carousel'
+import { PersonFill } from 'react-bootstrap-icons';
 
 
 const LatestNews = () => {
@@ -61,7 +62,7 @@ useEffect(() => {
                     />
                     <Carousel.Caption className="LatestNews_caption">
                         <h3>{article.title}</h3>
-                        <p>Written by: {article.author}</p>
+                        <p><PersonFill/> {article.author}</p>
                     </Carousel.Caption>
                   </Carousel.Item>
                 )
