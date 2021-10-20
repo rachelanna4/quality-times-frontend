@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { PersonFill, ArrowRightCircle } from 'react-bootstrap-icons';
+import { PersonFill, Calendar, ArrowRightCircle } from 'react-bootstrap-icons';
 import { getArticles } from '../utils/api'; 
 
 const Articles = () => {
@@ -30,8 +30,8 @@ useEffect(() => {
                     <Card className="Card">
                     <Card.Img className="Card_img" variant="top" src="/images/background1.png" />
                     <Card.ImgOverlay className="Card_overlay">
-                                    <h3 className="Card_title">Sorry we can't find any articles right now</h3>
-                                </Card.ImgOverlay>
+                        <h3 className="Card_title">Sorry we can't find any articles right now</h3>
+                    </Card.ImgOverlay>
                     <Card.Body>
                       <Card.Text>
                         Please try again later 
@@ -62,7 +62,10 @@ useEffect(() => {
                                   <Card.Text>
                                        <p className={`Card_topic Card_topic-${article.topic}`}>{article.topic}</p>
                                         <p className="Card_intro">{shortBody}</p>
-                                        <p className="Card_author"><PersonFill className="Card_author-icon"/> {article.author}</p> 
+                                        <p className="Card_metadata">
+                                            <PersonFill className="Card_metadata-icon"/> {article.author} 
+                                            <span className="Card_metadata-date"><Calendar/> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
+                                            </p> 
                                   </Card.Text>
                                   <Button className="Card_button" 
                                           variant="primary"
