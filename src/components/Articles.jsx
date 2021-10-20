@@ -90,12 +90,12 @@ const Articles = () => {
                         }}
                         >
                         <option value="" disabled>Sort articles by:</option>
-                        <option value="created_at:desc">Most Recent</option>
+                        <option value="created_at:desc">Newest</option>
                         <option value="created_at:asc">Oldest</option>
                         <option value="comment_count:desc">Most Comments</option>
                         <option value="comment_count:asc">Fewest Comments</option>
-                        <option value="votes:desc">Most Votes</option>
-                        <option value="votes:asc">Fewest Votes</option>
+                        <option value="votes:desc">Most Stars</option>
+                        <option value="votes:asc">Fewest Stars</option>
                         </select>
                     </form>
                     <ul className="ArticlesList">
