@@ -301,6 +301,16 @@ h1 {
   justify-content: center;
 }
 
+.page-item .page-link {
+  color: #495867;
+}
+
+.page-item.active .page-link {
+  background-color: #bdd5ea;
+  border-color: #bdd5ea;
+  color: #495867;
+}
+
 /* Single Article Page */
 
 .SingleArticle {
@@ -428,7 +438,7 @@ h1 {
 
   .Sort_dropdown {
     font-size: 1em;
-    width: 200px;
+    width: 300px;
   }
 
   .Card {
