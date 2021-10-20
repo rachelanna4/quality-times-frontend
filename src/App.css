@@ -328,6 +328,10 @@ h1 {
   margin-bottom: 15px;
 }
 
+.ArticleBody {
+  line-height: 1.65;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 750px) {
@@ -433,5 +437,45 @@ h1 {
 
   .Card_button {
     font-size: 0.8em;
+  }
+
+  /* Single Article Page Media Queries */
+
+  .SingleArticle {
+    display: grid;
+    grid-template-rows: 50px auto;
+    padding: 40px 100px;
+  }
+
+  .SingleArticle_columns {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-areas:
+      "metadata body"
+      "votes body"
+      "votes comments";
+  }
+
+  .SingleArticle_columns-left {
+    grid-area: metadata;
+    padding-top: 10px;
+  }
+
+  .SingleArticle_columns-leftBottom {
+    grid-area: votes;
+    padding-top: 20px;
+  }
+
+  .SingleArticle_columns-right {
+    grid-area: body;
+    padding-top: 20px;
+  }
+
+  .SingleArticle_columns-rightBottom {
+    grid-area: comments;
+  }
+
+  .ArticleBody {
+    line-height: 1.8;
   }
 }

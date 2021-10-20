@@ -31,19 +31,29 @@ const SingleArticle = () => {
             <section className="SingleArticle">
                 <h2>{article.title}</h2>
                 <h6 className={`ArticleTopic ArticleTopic-${article.topic}`}>{article.topic}</h6>
-                <p className="ArticleDate">
-                    <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}
-                </p>
-                <p className="ArticleAuthor">
-                    <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span> {article.author}
-                </p>
-                <p>{article.body}</p>
-                <p>
-                    <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span> {article.votes}
-                </p>
-                <p>
-                    <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> {article.comment_count}
-                </p>
+                <section className="SingleArticle_columns">
+                    <section className="SingleArticle_columns-left">
+                        <p className="ArticleDate">
+                            <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}
+                        </p>
+                        <p className="ArticleAuthor">
+                            <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span> {article.author}
+                        </p>
+                    </section>
+                        <section className="SingleArticle_columns-right">
+                        <p className="ArticleBody">{article.body}</p> 
+                    </section> 
+                    <section className="SingleArticle_columns-leftBottom">
+                        <p className="ArticleStars">
+                        <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span> {article.votes}
+                    </p>
+                    </section>
+                    <section className="SingleArticle_columns-rightBottom">
+                        <p className="ArticleComments">
+                            <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> {article.comment_count}
+                        </p>
+                    </section>
+                </section>
             </section>
             )
         }
