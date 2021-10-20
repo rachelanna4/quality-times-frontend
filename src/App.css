@@ -249,6 +249,10 @@ h1 {
   background-color: #bdd5ea;
 }
 
+.Pages {
+  justify-content: center;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 750px) {
