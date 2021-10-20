@@ -162,18 +162,30 @@ h1 {
 
 /* Articles Page */
 
+.Sort {
+  margin-top: 25px;
+  margin-left: 35px;
+}
+
+.Sort_dropdown {
+  font-size: 0.9em;
+  width: 175px;
+  background-color: #f7f7ff;
+  border-radius: 5px;
+}
+
 .ArticlesList {
   width: 100%;
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-left: 0;
-  margin: 20px auto;
+  margin: 15px auto;
   list-style-type: none;
 }
 
 .Card {
-  margin: 15px 0;
+  margin: 10px 0;
   border: 1px solid #495867;
   width: 80%;
   text-align: center;
@@ -308,6 +320,16 @@ h1 {
 
   .ArticlesList {
     justify-content: space-around;
+  }
+
+  .Sort {
+    margin-top: 35px;
+    margin-left: 40px;
+  }
+
+  .Sort_dropdown {
+    font-size: 1em;
+    width: 200px;
   }
 
   .Card {

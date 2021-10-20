@@ -79,9 +79,9 @@ const Articles = () => {
                 </section>
                 ) : (
                     <section>
-                    <form>
+                    <form className="Sort">
                         <select
-                        className="Dropdown"
+                        className="Sort_dropdown"
                         id="queries"
                         name="queries"
                         value={selectedSortBy}
