@@ -245,17 +245,18 @@ h1 {
 }
 
 .Card_metadata-date,
-.Card_interactions-stars {
+.Card_interactions-starCount {
   float: right;
   margin-right: 10px;
 }
 
 .Card_interactions {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
-.Card_interactions-stars {
-  margin-right: 20px;
+.Card_interactions-starIcon {
+  color: #e9c46a;
 }
 
 .Card_button {

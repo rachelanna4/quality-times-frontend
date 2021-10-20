@@ -125,7 +125,7 @@ const Articles = () => {
                                             </p> 
                                         <p className="Card_interactions">
                                              <span role="img" aria-label="Number of comments"><ChatLeftText className="Card_interactions-icon" /></span> {article.comment_count} 
-                                            <span className="Card_interactions-stars"> <span role="img" aria-label="Number of stars"><StarFill /></span> {article.votes}</span>
+                                            <span className="Card_interactions-starCount"> <span role="img" aria-label="Number of stars" className="Card_interactions-starIcon"><StarFill /></span> {article.votes}</span>
                                         </p> 
                                   </Card.Text>
                                   <Button className="Card_button" 
