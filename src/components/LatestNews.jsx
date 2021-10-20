@@ -1,33 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { getArticles } from '../utils/api';
+import * as api from '../utils/api';
 import Carousel from 'react-bootstrap/Carousel'
 import { PersonFill } from 'react-bootstrap-icons';
 
 
 const LatestNews = () => {
-const [latestNews, setLatestNews] = useState([])
-const [selectedArticle, setSelectedArticle] = useState("")
-const [isError, setIsError] = useState(false);
-const history = useHistory();
+  const [latestNews, setLatestNews] = useState([])
+  const [selectedArticle, setSelectedArticle] = useState("")
+  const [isError, setIsError] = useState(false);
+  const history = useHistory();
 
-useEffect(() => {
-    setIsError(false);
-    getArticles({sort_by: "created_at"}, {order: "desc"}, {limit: 3})
-    .then((articlesFromApi) => {
-        setLatestNews(articlesFromApi)
-    })
-    .catch(() => {
-        setIsError(true);
-      });
-    }, [])
+  useEffect(() => {
+      setIsError(false);
+      api.getArticles({sort_by: "created_at"}, {order: "desc"}, {limit: 3})
+      .then((articlesFromApi) => {
+          setLatestNews(articlesFromApi)
+      })
+      .catch(() => {
+          setIsError(true);
+        });
+      }, [])
 
-useEffect(() => {
-    if (selectedArticle) {
-    history.push(`/articles/${selectedArticle}`)
-    }
-    setSelectedArticle('');
-  }, [selectedArticle, history]);
+  useEffect(() => {
+      if (selectedArticle) {
+      history.push(`/articles/${selectedArticle}`)
+      }
+      setSelectedArticle('');
+    }, [selectedArticle, history]);
 
     return (
         <section className="LatestNews">

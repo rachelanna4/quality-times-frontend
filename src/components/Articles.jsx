@@ -3,33 +3,32 @@ import { useParams, useHistory} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { PersonFill, Calendar, ArrowRightCircle } from 'react-bootstrap-icons';
-import { getArticles } from '../utils/api'; 
+import * as api from '../utils/api'; 
 
 const Articles = () => {
-const [allArticles, setAllArticles] = useState([])
-const [isError, setIsError] = useState(false);
-const [selectedArticle, setSelectedArticle] = useState("")
-const { topic } = useParams();
-const history = useHistory();
+    const [allArticles, setAllArticles] = useState([])
+    const [isError, setIsError] = useState(false);
+    const [selectedArticle, setSelectedArticle] = useState("")
+    const { topic } = useParams();
+    const history = useHistory();
 
-useEffect(() => {
-    setIsError(false);
-    getArticles({topic: topic})
-    .then((articlesFromApi) => {
-        setAllArticles(articlesFromApi)
-    })
-    .catch(() => {
-        setIsError(true);
-      });
-}, [topic] )
+    useEffect(() => {
+        setIsError(false);
+        api.getArticles({topic: topic})
+        .then((articlesFromApi) => {
+            setAllArticles(articlesFromApi)
+        })
+        .catch(() => {
+            setIsError(true);
+        });
+    }, [topic] )
 
-useEffect(() => {
-    if (selectedArticle) {
-    history.push(`/articles/${selectedArticle}`)
-    }
-    setSelectedArticle('');
-  }, [selectedArticle, history]);
-
+    useEffect(() => {
+        if (selectedArticle) {
+        history.push(`/articles/${selectedArticle}`)
+        }
+        setSelectedArticle('');
+    }, [selectedArticle, history]);
 
 
     return (

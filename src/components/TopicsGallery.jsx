@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getTopics }  from "../utils/api.js"
+import * as api  from "../utils/api.js"
 
 const TopicsGallery = () => {
 const [topics, setTopics] = useState([]);
@@ -10,7 +10,7 @@ const history = useHistory();
 
 useEffect( () => {
     setIsError(false);
-    getTopics()
+    api.getTopics()
     .then((topicsFromApi)=> {
         setTopics(topicsFromApi)
     })
