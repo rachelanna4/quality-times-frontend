@@ -160,7 +160,7 @@ h1 {
   opacity: 0.85;
 }
 
-/* Articles Page */
+/* Articles Page plus styling for icons */
 
 .Sort {
   margin-top: 25px;
@@ -240,7 +240,10 @@ h1 {
 }
 
 .Card_metadata-icon,
-.Card_interactions-icon {
+.Card_interactions-icon,
+.ArticleDate_icon,
+.ArticleAuthor_icon,
+.ArticleComments_icon {
   color: #495867;
 }
 
@@ -255,7 +258,8 @@ h1 {
   margin-right: 20px;
 }
 
-.Card_interactions-starIcon {
+.Card_interactions-starIcon,
+.ArticleStars_icon {
   color: #e9c46a;
 }
 
@@ -277,6 +281,53 @@ h1 {
   justify-content: center;
 }
 
+/* Single Article Page */
+
+.SingleArticle {
+  padding: 25px 20px;
+  color: #495867;
+}
+
+.SingleArticle > h2 {
+  font-family: "Playfair Display", serif;
+}
+
+.SingleArticle > h2,
+.SingleArticle > h6 {
+  text-transform: capitalize;
+}
+
+.ArticleTopic {
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #bdd5ea;
+}
+
+.ArticleTopic-cooking {
+  background-color: #d88c9a;
+}
+
+.ArticleTopic-coding {
+  background-color: #99c1b9;
+}
+
+.ArticleTopic-football {
+  background-color: #f2d0a9;
+}
+
+.ArticleDate,
+.ArticleAuthor {
+  font-size: 0.85em;
+}
+
+.ArticleDate {
+  margin-top: 20px;
+}
+
+.ArticleAuthor {
+  margin-bottom: 15px;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 750px) {
@@ -287,6 +338,8 @@ h1 {
   .Header > p {
     font-size: 1.1em;
   }
+
+  /* Homepage Media Queries */
 
   .LatestNews {
     margin: 30px auto;
@@ -329,6 +382,8 @@ h1 {
   .TopicsGallery > ul {
     justify-content: space-around;
   }
+
+  /* Articles Page Media Queries plus styling for icons */
 
   .ArticlesList {
     justify-content: space-around;

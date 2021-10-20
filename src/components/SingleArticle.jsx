@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
 import * as api from '../utils/api'; 
+import { PersonFill, Calendar, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
@@ -28,13 +29,21 @@ const SingleArticle = () => {
             </section>
             ): (
             <section className="SingleArticle">
-                <p>{article.title}</p>
-                <p>{article.author}</p>
-                <p>{new Date(article.created_at).toLocaleDateString("en-GB")}</p>
+                <h2>{article.title}</h2>
+                <h6 className={`ArticleTopic ArticleTopic-${article.topic}`}>{article.topic}</h6>
+                <p className="ArticleDate">
+                    <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}
+                </p>
+                <p className="ArticleAuthor">
+                    <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span> {article.author}
+                </p>
                 <p>{article.body}</p>
-                <p>{article.topic}</p>
-                <p>{article.votes}</p>
-                <p>{article.comment_count}</p>
+                <p>
+                    <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span> {article.votes}
+                </p>
+                <p>
+                    <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> {article.comment_count}
+                </p>
             </section>
             )
         }
