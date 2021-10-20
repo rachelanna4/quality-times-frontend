@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Pagination from 'react-bootstrap/Pagination';
 import { PersonFill, Calendar, ArrowRightCircle } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
 
@@ -9,19 +10,22 @@ const Articles = () => {
     const [allArticles, setAllArticles] = useState([])
     const [isError, setIsError] = useState(false);
     const [selectedArticle, setSelectedArticle] = useState("")
+    const [currPage, setCurrPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
     const { topic } = useParams();
     const history = useHistory();
 
     useEffect(() => {
         setIsError(false);
-        api.getArticles({topic: topic})
-        .then((articlesFromApi) => {
-            setAllArticles(articlesFromApi)
+        api.getArticles({topic, currPage})
+        .then((dataFromApi) => {
+            setAllArticles(dataFromApi.articles)
+            setTotalPages(Math.ceil(dataFromApi.total_count / 9))
         })
         .catch(() => {
             setIsError(true);
         });
-    }, [topic] )
+    }, [topic, currPage] )
 
     useEffect(() => {
         if (selectedArticle) {
@@ -29,6 +33,16 @@ const Articles = () => {
         }
         setSelectedArticle('');
     }, [selectedArticle, history]);
+
+    let active = currPage;
+    let paginationItems = [];
+    for (let number = 1; number <= totalPages; number++) {
+    paginationItems.push(
+    <Pagination.Item key={number} active={number === active} onClick={() => setCurrPage(number)}>
+      {number}
+    </Pagination.Item>,
+  );
+}
 
 
     return (
@@ -54,6 +68,7 @@ const Articles = () => {
                   </Card>
                 </section>
                 ) : (
+                    <section>
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
                             let background = "/images/background1.png"
@@ -88,7 +103,8 @@ const Articles = () => {
                             )
                         })}
                     </ul>
-            
+                    <Pagination>{paginationItems}</Pagination>
+                    </section>
                 )}
            </>
     );
