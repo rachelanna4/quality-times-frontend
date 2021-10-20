@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import * as api  from "../utils/api.js"
 
-const TopicsGallery = () => {
-const [topics, setTopics] = useState([]);
+const TopicsGallery = ({topics, isTopicError}) => {
 const [selectedTopic, setSelectedTopic] = useState("")
-const [isError, setIsError] = useState(false);
 const history = useHistory();
-
-useEffect( () => {
-    setIsError(false);
-    api.getTopics()
-    .then((topicsFromApi)=> {
-        setTopics(topicsFromApi)
-    })
-    .catch(() => {
-        setIsError(true);
-      });
-}, [])
 
 useEffect(() => {
     if (selectedTopic.length > 0) {
@@ -29,7 +15,7 @@ useEffect(() => {
 
     return (
         <section className="TopicsGallery">
-          {isError ? (
+          {isTopicError ? (
             <p>Oops! Something went wrong.</p>
           ) : (
             <section className="TopicsGallery">

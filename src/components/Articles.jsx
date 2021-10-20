@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory} from 'react-router-dom';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import { PersonFill, Calendar, ArrowRightCircle, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
 
-const Articles = () => {
+const Articles = ({topicsList}) => {
     const [allArticles, setAllArticles] = useState([])
     const [isError, setIsError] = useState(false);
     const [selectedArticle, setSelectedArticle] = useState("")
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [selectedSortBy, setSelectedSortBy] = useState("")
+    const [tabPath, setTabPath]= useState("");
     const { topic } = useParams();
     const history = useHistory();
 
@@ -43,6 +46,13 @@ const Articles = () => {
         }
         setSelectedArticle('');
     }, [selectedArticle, history]);
+
+    useEffect(() => {
+        if (tabPath) {
+        history.push(`/articles${tabPath}`)
+        }
+        setTabPath ('');
+    },  [tabPath, history]);
 
     let active = currPage;
     let paginationItems = [];
@@ -79,6 +89,17 @@ const Articles = () => {
                 </section>
                 ) : (
                     <section>
+                      <Tabs defaultActiveKey={topic ? `/topics/${topic}` : '/'} id="uncontrolled-tab-example" className="mb-3" 
+                            onSelect={(eventKey) => {
+                              setTabPath(eventKey)
+                            }} >
+                        <Tab eventKey="/" title="all articles"/>
+                        {topicsList.map((topic) => {
+                          return (
+                            <Tab className={`Tab ${topic.slug}`} key={`${topic.slug}`} eventKey={`/topics/${topic.slug}`} title={`${topic.slug}`}/>
+                          )
+                        })}
+                      </Tabs>
                     <form className="Sort">
                         <select
                         className="Sort_dropdown"

@@ -162,9 +162,25 @@ h1 {
 
 /* Articles Page plus styling for icons */
 
+.nav-item {
+  margin-top: 15px;
+  border-top: 1px solid rgb(159, 158, 158);
+  border-right: 1px solid rgb(159, 158, 158);
+}
+.nav-link {
+  text-transform: capitalize;
+  padding: 4px 8px;
+  font-size: 0.7em;
+  color: #495867;
+}
+
+.nav-link.active {
+  background-color: #bdd5ea !important;
+}
+
 .Sort {
   margin-top: 25px;
-  margin-left: 35px;
+  margin-left: 15px;
 }
 
 .Sort_dropdown {
@@ -395,6 +411,14 @@ h1 {
 
   .ArticlesList {
     justify-content: space-around;
+  }
+
+  .nav-item {
+    margin-top: 15px;
+  }
+  .nav-link {
+    padding: 8px 16px;
+    font-size: 1em;
   }
 
   .Sort {

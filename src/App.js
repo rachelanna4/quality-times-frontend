@@ -10,8 +10,25 @@ import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
 import PostComment from "./components/PostComment";
 import EditComment from "./components/EditComment";
+import { useState, useEffect } from "react";
+import * as api from "./utils/api";
 
 function App() {
+  const [topics, setTopics] = useState([]);
+  const [isTopicError, setIsTopicError] = useState(false);
+
+  useEffect(() => {
+    setIsTopicError(false);
+    api
+      .getTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+      })
+      .catch(() => {
+        setIsTopicError(true);
+      });
+  }, []);
+
   return (
     <>
       <Header />
@@ -19,13 +36,13 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LatestNews />
-          <TopicsGallery />
+          <TopicsGallery topics={topics} isTopicError={isTopicError} />
         </Route>
         <Route exact path="/articles">
-          <Articles />
+          <Articles topicsList={topics} />
         </Route>
         <Route exact path="/articles/topics/:topic">
-          <Articles />
+          <Articles topicsList={topics} />
         </Route>
         <Route exact path="/articles/:article_id">
           <SingleArticle />
