@@ -3,7 +3,7 @@ import { useParams, useHistory} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
-import { PersonFill, Calendar, ArrowRightCircle } from 'react-bootstrap-icons';
+import { PersonFill, Calendar, ArrowRightCircle, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
 
 const Articles = () => {
@@ -123,6 +123,10 @@ const Articles = () => {
                                             <PersonFill className="Card_metadata-icon"/> {article.author} 
                                             <span className="Card_metadata-date"><Calendar/> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
                                             </p> 
+                                        <p className="Card_interactions">
+                                             <ChatLeftText className="Card_interactions-icon" /> {article.comment_count} 
+                                            <span className="Card_interactions-stars"> <StarFill /> {article.votes}</span>
+                                        </p> 
                                   </Card.Text>
                                   <Button className="Card_button" 
                                           variant="primary"
