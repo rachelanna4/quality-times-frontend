@@ -13,9 +13,8 @@ export const getArticles = async (...params) => {
     });
   });
 
-  console.log(queries);
-
   const { data } = await newsApi.get("/articles", { params: queries });
+
   return data.articles;
 };
 
