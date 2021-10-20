@@ -30,7 +30,7 @@ const SingleArticle = () => {
             <section className="SingleArticle">
                 <p>{article.title}</p>
                 <p>{article.author}</p>
-                <p>{article.created_at}</p>
+                <p>{new Date(article.created_at).toLocaleDateString("en-GB")}</p>
                 <p>{article.body}</p>
                 <p>{article.topic}</p>
                 <p>{article.votes}</p>
