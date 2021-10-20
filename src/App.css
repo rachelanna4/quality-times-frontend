@@ -88,7 +88,7 @@ h1 {
 
 .LatestNews_img {
   margin: 5px;
-  width: 95vw;
+  width: 90vw;
   height: 120px;
 }
 
@@ -159,25 +159,17 @@ h1 {
 /* Articles Page */
 
 .ArticlesList {
-  margin: 20px auto;
-  display: inline-flex;
-  position: relative;
-  justify-content: center;
-  width: 100%;
-}
-
-.ArticlesList > ul {
   width: 100%;
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-left: 0;
-  margin: 0 auto;
+  margin: 20px auto;
   list-style-type: none;
 }
 
 .Card {
-  margin: 20px 0;
+  margin: 15px 0;
   border: 1px solid #495867;
   width: 80%;
   text-align: center;
@@ -223,14 +215,19 @@ h1 {
 }
 
 .Card_intro,
-.Card_author {
+.Card_metadata {
   margin-left: 10px;
   text-align: left;
   font-size: 0.8em;
 }
 
-.Card_author-icon {
+.Card_metadata-icon {
   color: #495867;
+}
+
+.Card_metadata-date {
+  float: right;
+  margin-right: 10px;
 }
 
 .Card_button {
@@ -297,5 +294,40 @@ h1 {
 
   .TopicsGallery > ul {
     justify-content: space-around;
+  }
+
+  .ArticlesList {
+    justify-content: space-around;
+  }
+
+  .Card {
+    width: 28%;
+  }
+
+  .Card_img {
+    height: 125px;
+  }
+
+  .Card_overlay {
+    top: 5%;
+  }
+
+  .Card_title {
+    font-size: 1.2em;
+  }
+
+  .Card_topic {
+    padding: 2px 10px;
+  }
+
+  .Card_intro,
+  .Card_metadata {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 0.9em;
+  }
+
+  .Card_button {
+    font-size: 0.8em;
   }
 }

@@ -25,7 +25,7 @@ useEffect(() => {
 
 
     return (
-            <section className="ArticlesList">
+            <>
                 {isError ? (
                     <Card className="Card">
                     <Card.Img className="Card_img" variant="top" src="/images/background1.png" />
@@ -45,7 +45,7 @@ useEffect(() => {
                     </Card.Body>
                   </Card>
                 ) : (
-                    <ul>
+                    <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
                             let background = "/images/background1.png"
                             
@@ -78,8 +78,9 @@ useEffect(() => {
                             )
                         })}
                     </ul>
+            
                 )}
-            </section> 
+           </>
     );
 };
 
