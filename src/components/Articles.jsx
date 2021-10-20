@@ -8,6 +8,7 @@ import { getArticles } from '../utils/api';
 const Articles = () => {
 const [allArticles, setAllArticles] = useState([])
 const [isError, setIsError] = useState(false);
+const [selectedArticle, setSelectedArticle] = useState("")
 const { topic } = useParams();
 const history = useHistory();
 
@@ -21,6 +22,13 @@ useEffect(() => {
         setIsError(true);
       });
 }, [topic] )
+
+useEffect(() => {
+    if (selectedArticle) {
+    history.push(`/articles/${selectedArticle}`)
+    }
+    setSelectedArticle('');
+  }, [selectedArticle, history]);
 
 
 
@@ -57,10 +65,9 @@ useEffect(() => {
                             return (
                                 <Card className="Card" 
                                       key={article.article_id}
-                                    //   onClick={((e) => {
-
-                                    //   })}
-                                    >
+                                      onClick={(e) => {
+                                        setSelectedArticle(article.article_id)
+                                        }}>
                                 <Card.Img className="Card_img" variant="top" src={background} />
                                 <Card.ImgOverlay className="Card_overlay">
                                     <h3 className="Card_title">{article.title}</h3>
@@ -76,9 +83,6 @@ useEffect(() => {
                                   </Card.Text>
                                   <Button className="Card_button" 
                                           variant="primary"
-                                          onClick={((e) =>{
-                                            history.push("/")
-                                          })}
                                   >Read full article  <ArrowRightCircle /></Button>
                                 </Card.Body>
                               </Card>
