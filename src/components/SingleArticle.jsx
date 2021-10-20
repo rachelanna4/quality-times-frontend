@@ -22,7 +22,7 @@ const SingleArticle = () => {
     return (
         <> 
             {isError ? (
-            <section>
+            <section className="SingleArticle-error">
                 <p>Oops! Something went wrong and we can't find the article</p>
                 <p>Try again later</p>
             </section>

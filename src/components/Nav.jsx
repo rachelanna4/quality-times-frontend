@@ -7,7 +7,7 @@ const Nav = () => {
     return (
         <section className="Nav">
             <section className="Nav_links">
-            <Link to="/"><HouseDoor /> Home</Link>
+            <Link to="/"><span role="img" aria-label="Home Icon"><HouseDoor /></span> Home</Link>
             <Link to="/articles">Articles </Link>
             <Link to="/post-article">Post Article</Link>
             </section>

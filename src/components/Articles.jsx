@@ -120,12 +120,12 @@ const Articles = () => {
                                        <p className={`Card_topic Card_topic-${article.topic}`}>{article.topic}</p>
                                         <p className="Card_intro">{shortBody}</p>
                                         <p className="Card_metadata">
-                                            <PersonFill className="Card_metadata-icon"/> {article.author} 
-                                            <span className="Card_metadata-date"><Calendar/> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
+                                            <span role="img" aria-label="Written by"><PersonFill className="Card_metadata-icon"/></span> {article.author} 
+                                            <span className="Card_metadata-date"><span role="img" aria-label="Date"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
                                             </p> 
                                         <p className="Card_interactions">
-                                             <ChatLeftText className="Card_interactions-icon" /> {article.comment_count} 
-                                            <span className="Card_interactions-stars"> <StarFill /> {article.votes}</span>
+                                             <span role="img" aria-label="Number of comments"><ChatLeftText className="Card_interactions-icon" /></span> {article.comment_count} 
+                                            <span className="Card_interactions-stars"> <span role="img" aria-label="Number of stars"><StarFill /></span> {article.votes}</span>
                                         </p> 
                                   </Card.Text>
                                   <Button className="Card_button" 

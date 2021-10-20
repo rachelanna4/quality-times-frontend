@@ -232,19 +232,30 @@ h1 {
 }
 
 .Card_intro,
-.Card_metadata {
+.Card_metadata,
+.Card_interactions {
   margin-left: 10px;
   text-align: left;
   font-size: 0.8em;
 }
 
-.Card_metadata-icon {
+.Card_metadata-icon,
+.Card_interactions-icon {
   color: #495867;
 }
 
-.Card_metadata-date {
+.Card_metadata-date,
+.Card_interactions-stars {
   float: right;
   margin-right: 10px;
+}
+
+.Card_interactions {
+  margin-left: 20px;
+}
+
+.Card_interactions-stars {
+  margin-right: 20px;
 }
 
 .Card_button {
@@ -252,7 +263,7 @@ h1 {
   border: none;
   border-radius: 30px;
   margin-bottom: 16px;
-  font-size: 0.7em;
+  font-size: 0.75em;
   font-weight: 600;
 }
 
@@ -357,6 +368,11 @@ h1 {
     margin-left: 20px;
     margin-right: 20px;
     font-size: 0.9em;
+  }
+
+  .Card_interactions {
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   .Card_button {

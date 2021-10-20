@@ -62,7 +62,7 @@ const LatestNews = () => {
                     />
                     <Carousel.Caption className="LatestNews_caption">
                         <h3>{article.title}</h3>
-                        <p><PersonFill/> {article.author}</p>
+                        <p><span role="img" aria-label="Written by"><PersonFill/></span> {article.author}</p>
                     </Carousel.Caption>
                   </Carousel.Item>
                 )
