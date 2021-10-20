@@ -214,9 +214,13 @@ h1 {
 .Card_topic {
   text-align: left;
   padding: 2px 5px;
-  text-transform: capitalize;
   font-weight: 500;
   background-color: #bdd5ea;
+}
+
+.Card_title,
+.Card_topic {
+  text-transform: capitalize;
 }
 
 .Card_topic-cooking {

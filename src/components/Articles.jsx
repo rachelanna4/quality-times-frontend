@@ -113,7 +113,7 @@ const Articles = () => {
                                         }}>
                                 <Card.Img className="Card_img" variant="top" src={background} />
                                 <Card.ImgOverlay className="Card_overlay">
-                                    <h3 className="Card_title">{article.title}</h3>
+                                    <h3 className="Card_title">{article.title.toLowerCase()}</h3>
                                 </Card.ImgOverlay>
                                 <Card.Body className="Card_body">
                                   <Card.Text>
