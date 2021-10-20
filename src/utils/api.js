@@ -20,3 +20,8 @@ export const getTopics = async () => {
   const { data } = await newsApi.get("/topics");
   return data.topics;
 };
+
+export const getSingleArticle = async (article_id) => {
+  const { data } = await newsApi.get(`/aricles/${article_id}`);
+  return data.article;
+};
