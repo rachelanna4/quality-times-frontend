@@ -27,7 +27,11 @@ useEffect(() => {
     return (
             <>
                 {isError ? (
-                    <Card className="Card">
+                <section className="ArticlesList">
+                    <Card className="Card"
+                    onClick={((e) =>{
+                        history.push("/")
+                      })}>
                     <Card.Img className="Card_img" variant="top" src="/images/background1.png" />
                     <Card.ImgOverlay className="Card_overlay">
                         <h3 className="Card_title">Sorry we can't find any articles right now</h3>
@@ -38,12 +42,10 @@ useEffect(() => {
                       </Card.Text>
                       <Button className="Card_button" 
                               variant="primary"
-                              onClick={((e) =>{
-                                history.push("/")
-                              })}
                       >Go back home</Button>
                     </Card.Body>
                   </Card>
+                </section>
                 ) : (
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
@@ -53,7 +55,12 @@ useEffect(() => {
                             shortBody += article.body.split(" ").slice(0, 20).join(" ") + "..."
 
                             return (
-                                <Card className="Card" key={article.article_id}>
+                                <Card className="Card" 
+                                      key={article.article_id}
+                                    //   onClick={((e) => {
+
+                                    //   })}
+                                    >
                                 <Card.Img className="Card_img" variant="top" src={background} />
                                 <Card.ImgOverlay className="Card_overlay">
                                     <h3 className="Card_title">{article.title}</h3>
