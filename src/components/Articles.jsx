@@ -12,12 +12,22 @@ const Articles = () => {
     const [selectedArticle, setSelectedArticle] = useState("")
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [selectedSortBy, setSelectedSortBy] = useState("")
     const { topic } = useParams();
     const history = useHistory();
 
     useEffect(() => {
+
+        const queries = {topic, currPage}
+
+        if(selectedSortBy) {
+        const sortQuery = selectedSortBy.split(":")
+        queries.sort_by = sortQuery[0];
+        queries.order = sortQuery[1];
+        }
+
         setIsError(false);
-        api.getArticles({topic, currPage})
+        api.getArticles(queries)
         .then((dataFromApi) => {
             setAllArticles(dataFromApi.articles)
             setTotalPages(Math.ceil(dataFromApi.total_count / 9))
@@ -25,7 +35,7 @@ const Articles = () => {
         .catch(() => {
             setIsError(true);
         });
-    }, [topic, currPage] )
+    }, [topic, currPage, selectedSortBy])
 
     useEffect(() => {
         if (selectedArticle) {
@@ -69,6 +79,25 @@ const Articles = () => {
                 </section>
                 ) : (
                     <section>
+                    <form>
+                        <select
+                        className="Dropdown"
+                        id="queries"
+                        name="queries"
+                        value={selectedSortBy}
+                        onChange={(e) => {
+                            setSelectedSortBy(e.target.value);
+                        }}
+                        >
+                        <option value="" disabled>Sort articles by:</option>
+                        <option value="created_at:desc">Most Recent</option>
+                        <option value="created_at:asc">Oldest</option>
+                        <option value="comment_count:desc">Most Comments</option>
+                        <option value="comment_count:asc">Fewest Comments</option>
+                        <option value="votes:desc">Most Votes</option>
+                        <option value="votes:asc">Fewest Votes</option>
+                        </select>
+                    </form>
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
                             let background = "/images/background1.png"
@@ -103,8 +132,8 @@ const Articles = () => {
                             )
                         })}
                     </ul>
-                    <Pagination>{paginationItems}</Pagination>
-                    </section>
+                    <Pagination className="Pages">{paginationItems}</Pagination>
+                </section>
                 )}
            </>
     );
