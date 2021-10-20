@@ -31,7 +31,7 @@ useEffect(() => {
     return (
         <section className="LatestNews">
         {isError ? (
-            <Carousel className="Carousel">
+            <Carousel className="Carousel Carousel-error">
                <Carousel.Item>
                     <img
                     src="./images/background1.png"

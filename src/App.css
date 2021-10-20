@@ -86,6 +86,10 @@ h1 {
   cursor: pointer;
 }
 
+.Carousel-error {
+  cursor: auto;
+}
+
 .LatestNews_img {
   margin: 5px;
   width: 93vw;
