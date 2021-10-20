@@ -13,9 +13,9 @@ const LatestNews = () => {
 
   useEffect(() => {
       setIsError(false);
-      api.getArticles({sort_by: "created_at"}, {order: "desc"}, {limit: 3})
+      api.getArticles({sort_by: "created_at", order: "desc", limit: 3})
       .then((articlesFromApi) => {
-          setLatestNews(articlesFromApi)
+          setLatestNews(articlesFromApi.articles)
       })
       .catch(() => {
           setIsError(true);
