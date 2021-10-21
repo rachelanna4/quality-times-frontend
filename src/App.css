@@ -173,24 +173,28 @@ h1 {
   text-align: center;
 }
 
-/* Login Page */
+/* Login Page and 404 Page Not Found */
 
-.Login {
+.Login,
+.PageNotFound {
   margin-top: 50px;
   padding: 20px 50px;
   text-align: center;
 }
 
-.Login > h4 {
+.Login > h4,
+.PageNotFound > h4 {
   font-size: 1.4em;
 }
 
-.Login > h5 {
+.Login > h5,
+.PageNotFound > h5 {
   margin-top: 20px;
   font-size: 1.2em;
 }
 
-.Login > button {
+.Login > button,
+.PageNotFound > button {
   margin-top: 20px;
   padding: 5px 15px;
   border-radius: 10px;
@@ -198,6 +202,11 @@ h1 {
   background-color: var(--orangeRed);
   color: var(--ghostWhite);
   font-size: 1.1em;
+}
+
+.PageNotFound button > * {
+  color: var(--ghostWhite);
+  text-decoration: none;
 }
 
 /* Articles Page plus styling for icons */
@@ -585,7 +594,8 @@ hr {
 
   /* Login Page */
 
-  .Login {
+  .Login,
+  .PageNotFound {
     margin-top: 100px;
   }
 

@@ -11,6 +11,7 @@ import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
 import PostComment from "./components/PostComment";
 import EditComment from "./components/EditComment";
+import PageNotFound from "./components/PageNotFound";
 import { useState, useEffect } from "react";
 import * as api from "./utils/api";
 
@@ -59,6 +60,9 @@ function App() {
         </Route>
         <Route exact path="/post-article">
           <PostArticle />
+        </Route>
+        <Route path="*">
+          <PageNotFound />
         </Route>
       </Switch>
     </>
