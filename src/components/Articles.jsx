@@ -11,7 +11,6 @@ import * as api from '../utils/api';
 const Articles = ({topicsList}) => {
     const [allArticles, setAllArticles] = useState([])
     const [isError, setIsError] = useState(false);
-    const [selectedArticle, setSelectedArticle] = useState("")
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [selectedSortBy, setSelectedSortBy] = useState("")
