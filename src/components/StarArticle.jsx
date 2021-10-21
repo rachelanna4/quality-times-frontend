@@ -6,19 +6,34 @@ import * as api from '../utils/api';
 const StarArticle = ({article_id, star_count}) => {
     const { setUser, isLoggedIn} = useContext(UserContext);
     const [clickCount, setClickCount] = useState(0); 
-    const [starChange, setStarChange] = useState(""); 
+    const [starChange, setStarChange] = useState(0); 
     
 
     useEffect(() => {
+        if (clickCount === 0) {
+            return;
+        }
         let requestStarChange = ""
+        let newStarChange = 0;
        if (clickCount > 0 && clickCount % 2 === 0) {
             requestStarChange = -1;
-            setStarChange(0)
+            newStarChange = 0;
        } else if (clickCount > 0 && clickCount % 2 !== 0) {
             requestStarChange = 1;
-            setStarChange(1)
+            newStarChange = 1;
        }
+       setStarChange(newStarChange)
        api.patchArticleVotes(article_id, requestStarChange)
+       .catch(() => {
+           if (newStarChange === 1) {
+               setStarChange(0)
+               setClickCount(0)
+           } else {
+               setStarChange(1)
+               setClickCount(1)
+           }
+           
+       })
     }, [clickCount, article_id])
 
     return (
