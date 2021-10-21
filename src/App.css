@@ -480,7 +480,8 @@ h1 {
   }
 
   .Card_intro,
-  .Card_metadata {
+  .Card_metadata,
+  .Card_interactions {
     margin-left: 20px;
     margin-right: 20px;
     font-size: 0.9em;
