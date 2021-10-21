@@ -141,6 +141,11 @@ h1 {
   list-style-type: none;
 }
 
+.TopicLinks,
+.TopicLinks:hover {
+  color: #495867;
+}
+
 .TopicsGallery_container {
   position: relative;
   margin: 5px 0 10px 0;

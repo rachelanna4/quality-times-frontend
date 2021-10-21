@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TopicsGallery = ({topics, isTopicError}) => {
-const [selectedTopic, setSelectedTopic] = useState("")
-const history = useHistory();
-
-useEffect(() => {
-    if (selectedTopic.length > 0) {
-    history.push(`/articles/topics/${selectedTopic}`)
-    }
-    setSelectedTopic('');
-  }, [selectedTopic, history]);
-
 
     return (
        <>
@@ -26,10 +16,8 @@ useEffect(() => {
             <ul>
               {topics.map((topic) => {
                 return (
-                    <li key={topic.slug}
-                        onClick={((e) => {
-                        setSelectedTopic(topic.slug)
-                    })} >
+                  <Link to={`/articles/topics/${topic.slug}`} className="TopicLinks">
+                    <li key={topic.slug}>
                       <section className="TopicsGallery_container">
                         <img 
                           src={`/images/${topic.slug}.jpg`}
@@ -40,6 +28,7 @@ useEffect(() => {
                         <h3>{topic.slug}</h3>
                       </section>
                     </li> 
+                  </Link>
                 )
               })}
             </ul>
