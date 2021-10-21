@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Nav from "./components/Nav";
+import Navigation from "./components/Nav";
 import LatestNews from "./components/LatestNews";
 import TopicsGallery from "./components/TopicsGallery";
 import Articles from "./components/Articles";
@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Header />
-      <Nav />
+      <Navigation />
       <Switch>
         <Route exact path="/">
           <LatestNews />
