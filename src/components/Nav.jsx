@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { HouseDoor, BoxArrowInRight } from 'react-bootstrap-icons';
+import { HouseDoor, BoxArrowInRight, PersonFill, Person } from 'react-bootstrap-icons';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-// import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
+import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 
 
 const Navigation = () => {
-    // const { user, isLoggedIn} = useContext(UserContext); 
+    const { user, isLoggedIn} = useContext(UserContext); 
 
     return (
         <Navbar bg="light" expand="md" className="Nav">
@@ -20,9 +20,15 @@ const Navigation = () => {
                     </Link>
                     <Link to="/articles">Articles</Link>
                     <Link to="/post-article">Post Article</Link>
+                    
                     <Link to="/login">
-                    <span role="img" aria-label="Login Icon"><BoxArrowInRight /></span> 
-                        &nbsp;&nbsp;Login
+                        <RequiresGuest isLoggedIn={isLoggedIn}>
+                            <span role="img" aria-label="Login Icon"><BoxArrowInRight /></span> 
+                                &nbsp;&nbsp;Login
+                        </RequiresGuest>
+                        <RequiresLogin isLoggedIn={isLoggedIn}>
+                        <span role="img" aria-label="User Icon"><PersonFill /></span> 
+                        &nbsp;&nbsp;{user}</RequiresLogin>
                     </Link>
                 </Nav>
                 </Navbar.Collapse>
