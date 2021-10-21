@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory} from 'react-router-dom';
+import { useParams, useHistory, Link} from 'react-router-dom';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab'
 import Card from 'react-bootstrap/Card';
@@ -41,13 +41,6 @@ const Articles = ({topicsList}) => {
     }, [topic, currPage, selectedSortBy])
 
     useEffect(() => {
-        if (selectedArticle) {
-        history.push(`/articles/${selectedArticle}`)
-        }
-        setSelectedArticle('');
-    }, [selectedArticle, history]);
-
-    useEffect(() => {
         if (tabPath) {
         history.push(`/articles${tabPath}`)
         }
@@ -69,10 +62,9 @@ const Articles = ({topicsList}) => {
             <>
                 {isError ? (
                 <section className="ArticlesList">
-                    <Card className="Card"
-                    onClick={((e) =>{
-                        history.push("/")
-                      })}>
+                  <Link to="/" className="Card">
+                    <Card
+                    >
                     <Card.Img className="Card_img" variant="top" src="/images/background1.png" />
                     <Card.ImgOverlay className="Card_overlay">
                         <h3 className="Card_title">Sorry we can't find any articles right now</h3>
@@ -86,6 +78,7 @@ const Articles = ({topicsList}) => {
                       >Go back home</Button>
                     </Card.Body>
                   </Card>
+                  </Link>
                 </section>
                 ) : (
                     <section>
@@ -127,11 +120,10 @@ const Articles = ({topicsList}) => {
                             shortBody += article.body.split(" ").slice(0, 20).join(" ") + "..."
 
                             return (
-                                <Card className="Card" 
+                              <Link to={`/articles/${article.article_id}`} className="Card">
+                                <Card 
                                       key={article.article_id}
-                                      onClick={(e) => {
-                                        setSelectedArticle(article.article_id)
-                                        }}>
+                                      >
                                 <Card.Img className="Card_img" variant="top" src={background} />
                                 <Card.ImgOverlay className="Card_overlay">
                                     <h3 className="Card_title">{article.title.toLowerCase()}</h3>
@@ -154,6 +146,7 @@ const Articles = ({topicsList}) => {
                                   >Read full article  <ArrowRightCircle /></Button>
                                 </Card.Body>
                               </Card>
+                            </Link>
                             )
                         })}
                     </ul>

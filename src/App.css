@@ -255,6 +255,12 @@ h1 {
   width: 80%;
   text-align: center;
   cursor: pointer;
+  color: var(--darkBlue);
+  text-decoration: none;
+}
+
+.Card:hover {
+  color: var(--darkBlue);
 }
 
 .Card_body {
