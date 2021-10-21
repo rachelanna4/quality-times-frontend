@@ -167,6 +167,33 @@ h1 {
   text-align: center;
 }
 
+/* Login Page */
+
+.Login {
+  margin-top: 50px;
+  padding: 20px 50px;
+  text-align: center;
+}
+
+.Login > h4 {
+  font-size: 1.4em;
+}
+
+.Login > h5 {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.Login > button {
+  margin-top: 20px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--orangeRed);
+  color: var(--ghostWhite);
+  font-size: 1.1em;
+}
+
 /* Articles Page plus styling for icons */
 
 .nav-item {
@@ -506,6 +533,12 @@ hr {
 
   .TopicsGallery-error {
     margin-top: 60px;
+  }
+
+  /* Login Page */
+
+  .Login {
+    margin-top: 100px;
   }
 
   /* Articles Page Media Queries plus styling for icons */

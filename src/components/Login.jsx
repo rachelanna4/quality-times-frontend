@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 
 const Login = () => {
-    const { setUser, isLoggedIn} = useContext(UserContext); 
+    const { user, setUser, isLoggedIn} = useContext(UserContext); 
 
     return (
         <>
@@ -17,7 +17,12 @@ const Login = () => {
         </RequiresGuest>
         <RequiresLogin isLoggedIn={isLoggedIn}>
             <section className="Login">
-                <p>Succesfully logged in</p>
+                <h4>Hello {user}!</h4>
+                <h5>You are succesfully logged in</h5>
+                <button onClick={ () => {
+                    setUser(null)
+                }
+                }>Logout</button>
             </section>
         </RequiresLogin>
         </>
