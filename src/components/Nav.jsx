@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { HouseDoor, BoxArrowInRight, PersonFill, Person } from 'react-bootstrap-icons';
+import { HouseDoor, BoxArrowInRight, PersonFill, } from 'react-bootstrap-icons';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';

@@ -30,3 +30,10 @@ export const getCommentsByArticle = async (article_id) => {
   const { data } = await newsApi.get(`/articles/${article_id}/comments`);
   return data;
 };
+
+export const patchArticleVotes = async (article_id, voteChange) => {
+  const patchRequest = { inc_votes: voteChange };
+
+  const { data } = await newsApi.patch(`/articles/${article_id}`, patchRequest);
+  return data.votes;
+};

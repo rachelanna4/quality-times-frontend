@@ -14,9 +14,9 @@ export const UserProvider = ({ children }) => {
 };
 
 export const RequiresLogin = ({ isLoggedIn, children }) => {
-  return <section>{isLoggedIn && children}</section>;
+  return <>{isLoggedIn && children}</>;
 };
 
 export const RequiresGuest = ({ isLoggedIn, children }) => {
-  return <section>{!isLoggedIn && children}</section>;
+  return <>{!isLoggedIn && children}</>;
 };

@@ -413,6 +413,48 @@ h1 {
   text-align: center;
 }
 
+/* Single Article Page - Votes Section */
+
+.SingleArticle_columns-leftBottom {
+  margin: 5px;
+  display: inline-flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.SingleArticle_columns-leftBottom > p {
+  margin-top: 5px;
+}
+
+.StarLoginButton {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--orangeRed);
+  color: var(--ghostWhite);
+  font-size: 0.8em;
+}
+
+.StarButton {
+  margin-right: 80px;
+  height: 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--ghostWhite);
+  color: var(--orangeRed);
+  font-size: 1.2em;
+}
+
+.StarThumb {
+  display: none;
+}
+
+.active {
+  display: inline;
+}
+
 /* Single Article Page - Comments Section */
 
 .SingleArticle_columns-rightBottom {
@@ -480,7 +522,7 @@ hr {
 
   .Nav_links > * {
     color: var(--ghostWhite) !important;
-    font-size: 0.7em !important;
+    font-size: 0.9em !important;
     text-decoration: none;
     font-weight: 600;
     padding: 0 10px;
@@ -618,7 +660,7 @@ hr {
 
   .SingleArticle_columns {
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 250px auto;
     grid-template-areas:
       "metadata body"
       "votes body"
@@ -650,5 +692,32 @@ hr {
 
   .SingleArticle-error {
     margin-top: 60px;
+  }
+
+  /* Single Article Page - Votes Section */
+
+  .SingleArticle_columns-leftBottom {
+    width: 70%;
+  }
+
+  .SingleArticle_columns-leftBottom > p {
+    margin-top: 3px;
+  }
+
+  .StarLoginButton {
+    font-size: 0.9em;
+  }
+
+  .StarButton {
+    margin-right: 75px;
+    font-size: 1.2em;
+  }
+
+  .StarThumb {
+    display: none;
+  }
+
+  .active {
+    display: inline;
   }
 }

@@ -3,7 +3,7 @@ import { useParams} from 'react-router-dom';
 import * as api from '../utils/api'; 
 import StarArticle from "./StarArticle";
 import Comments from "./Comments";
-import { PersonFill, Calendar, StarFill } from 'react-bootstrap-icons';
+import { PersonFill, Calendar } from 'react-bootstrap-icons';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
