@@ -160,6 +160,13 @@ h1 {
   opacity: 0.85;
 }
 
+.TopicsGallery-error {
+  padding: 0 20px 0 20px;
+  margin-top: 40px;
+  color: #495867;
+  text-align: center;
+}
+
 /* Articles Page plus styling for icons */
 
 .nav-item {
@@ -362,6 +369,13 @@ h1 {
   line-height: 1.65;
 }
 
+.SingleArticle-error {
+  padding: 0 20px 0 20px;
+  margin-top: 40px;
+  color: #495867;
+  text-align: center;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 750px) {
@@ -415,6 +429,10 @@ h1 {
 
   .TopicsGallery > ul {
     justify-content: space-around;
+  }
+
+  .TopicsGallery-error {
+    margin-top: 60px;
   }
 
   /* Articles Page Media Queries plus styling for icons */
@@ -515,5 +533,9 @@ h1 {
 
   .ArticleBody {
     line-height: 1.8;
+  }
+
+  .SingleArticle-error {
+    margin-top: 60px;
   }
 }

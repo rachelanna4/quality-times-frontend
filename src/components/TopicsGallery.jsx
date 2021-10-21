@@ -14,9 +14,12 @@ useEffect(() => {
 
 
     return (
-        <section className="TopicsGallery">
+       <>
           {isTopicError ? (
-            <p>Oops! Something went wrong.</p>
+            <section className="TopicsGallery-error">
+            <p>Oops! Something went wrong loading the topics</p>
+            <p>Try again later</p>
+          </section>
           ) : (
             <section className="TopicsGallery">
             <h3>Browse topics:</h3>
@@ -42,7 +45,7 @@ useEffect(() => {
             </ul>
             </section>
         )}
-        </section>
+        </>
     );
 };
 
