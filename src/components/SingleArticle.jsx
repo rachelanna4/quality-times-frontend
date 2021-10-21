@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
 import * as api from '../utils/api'; 
+import StarArticle from "./StarArticle";
 import Comments from "./Comments";
 import { PersonFill, Calendar, StarFill } from 'react-bootstrap-icons';
 
@@ -43,11 +44,7 @@ const SingleArticle = () => {
                         <section className="SingleArticle_columns-right">
                         <p className="ArticleBody">{article.body}</p> 
                     </section> 
-                    <section className="SingleArticle_columns-leftBottom">
-                        <p className="ArticleStars">
-                        <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span>&nbsp;&nbsp;{article.votes}
-                    </p>
-                    </section>
+                    <StarArticle article_id={article_id} star_count={article.votes} />
                     <Comments article_id={article_id} comment_count={article.comment_count} />    
                 </section>
             </section>
