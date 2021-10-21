@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Navigation from "./components/Nav";
+import Login from "./components/Login";
 import LatestNews from "./components/LatestNews";
 import TopicsGallery from "./components/TopicsGallery";
 import Articles from "./components/Articles";
@@ -37,6 +38,9 @@ function App() {
         <Route exact path="/">
           <LatestNews />
           <TopicsGallery topics={topics} isTopicError={isTopicError} />
+        </Route>
+        <Route exact path="/login">
+          <Login />
         </Route>
         <Route exact path="/articles">
           <Articles topicsList={topics} />

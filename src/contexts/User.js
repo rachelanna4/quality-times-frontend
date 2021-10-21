@@ -13,3 +13,11 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
+
+export const RequiresLogin = ({ isLoggedIn, children }) => {
+  return <section>{isLoggedIn && children}</section>;
+};
+
+export const RequiresGuest = ({ isLoggedIn, children }) => {
+  return <section>{!isLoggedIn && children}</section>;
+};
