@@ -17,7 +17,7 @@ const Comments = ({article_id, comment_count}) => {
         .catch(() => {
             setIsCommentsError(true);
         });
-    }, [comments, article_id])
+    }, [ article_id])
 
 
     return (
