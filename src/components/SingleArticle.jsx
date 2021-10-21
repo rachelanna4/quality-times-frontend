@@ -49,10 +49,10 @@ const SingleArticle = () => {
                 <section className="SingleArticle_columns">
                     <section className="SingleArticle_columns-left">
                         <p className="ArticleDate">
-                            <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}
+                            <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span>&nbsp;&nbsp;{new Date(article.created_at).toLocaleDateString("en-GB")}
                         </p>
                         <p className="ArticleAuthor">
-                            <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span> {article.author}
+                            <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span>&nbsp;&nbsp;{article.author}
                         </p>
                     </section>
                         <section className="SingleArticle_columns-right">
@@ -60,16 +60,18 @@ const SingleArticle = () => {
                     </section> 
                     <section className="SingleArticle_columns-leftBottom">
                         <p className="ArticleStars">
-                        <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span> {article.votes}
+                        <span role="img" aria-label="Number of stars"><StarFill className="ArticleStars_icon" /></span>&nbsp;&nbsp;{article.votes}
                     </p>
                     </section>
                     <section className="SingleArticle_columns-rightBottom">
                         {isCommentsError ? (
-                            <section className="CommentList-error">
-                                <Accordion>
+                            <section>
+                                <Accordion className="CommentList-error">
                                     <Accordion.Item eventKey="comments-error">
-                                        <Accordion.Header>
-                                            <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> &nbsp; &nbsp;View all comments
+                                        <Accordion.Header className="CommentList_header-error">
+                                            <p>
+                                                <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> &nbsp; &nbsp;View all comments
+                                            </p>
                                         </Accordion.Header>
                                         <Accordion.Body>
                                                 <p>Sorry we can't find any comments right now</p>
@@ -79,21 +81,30 @@ const SingleArticle = () => {
                                 </Accordion>
                             </section>
                         ) : (
-                            <section className="CommentList">
-                                <Accordion>
+                            <section>
+                                <Accordion className="CommentList">
                                 <Accordion.Item eventKey="comments">
-                                    <Accordion.Header>
-                                    <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> &nbsp; &nbsp;View all {article.comment_count} comments
+                                    <Accordion.Header className="CommentList_header">
+                                    <p>
+                                        <span role="img" aria-label="Number of comments"><ChatLeftText className="ArticleComments_icon" /></span> &nbsp; &nbsp;View all {article.comment_count} comments
+                                    </p>
                                     </Accordion.Header>
                                     {comments.map((comment) => {
                                         return (
-                                            <Accordion.Body>
-                                            <p>
-                                                <span role="img" aria-label="Written by"><PersonFill className="CommentAuthor_icon"/></span>{comment.author} 
-                                                <span role="img" aria-label="Date" className="CommentDate_icon"><Calendar/></span> {new Date(comment.created_at).toLocaleDateString("en-GB")}
-                                            </p>
-                                            <p>{comment.body}</p>
-                                            <p>Votes: {comment.votes}</p>
+                                            <Accordion.Body >
+                                                <section className="CommentList_metadata">
+                                                    <p>
+                                                        <span role="img" aria-label="Date" className="CommentDate_icon"><Calendar/></span> &nbsp;&nbsp;{new Date(comment.created_at).toLocaleDateString("en-GB")}
+                                                    </p>
+                                                    <p>
+                                                        <span role="img" aria-label="Written by"><PersonFill className="CommentAuthor_icon"/></span>&nbsp;&nbsp;{comment.author} 
+                                                    </p>
+                                                </section>
+                                                    <section className="CommentList_body">
+                                                    <p>"{comment.body}"</p>
+                                                </section>
+                                                <p>Votes: {comment.votes}</p>
+                                                <hr />
                                             </Accordion.Body>
                                         )
                                     })}

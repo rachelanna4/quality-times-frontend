@@ -274,10 +274,13 @@ h1 {
 }
 
 .Card_metadata-icon,
+.Card_date-icon,
 .Card_interactions-icon,
 .ArticleDate_icon,
 .ArticleAuthor_icon,
-.ArticleComments_icon {
+.ArticleComments_icon,
+.CommentAuthor_icon,
+.CommentDate_icon {
   color: var(--darkBlue);
 }
 
@@ -373,6 +376,7 @@ h1 {
 }
 
 .ArticleBody {
+  font-size: 0.95em;
   line-height: 1.65;
 }
 
@@ -381,6 +385,45 @@ h1 {
   margin-top: 40px;
   color: var(--darkBlue);
   text-align: center;
+}
+
+/* Single Article Page - Comments Section */
+
+.SingleArticle_columns-rightBottom {
+  margin-top: 15px;
+}
+
+.CommentList p,
+.CommentList-error p {
+  color: var(--darkBlue);
+}
+
+.CommentList_header p,
+.CommentList_header-error p {
+  margin-bottom: 0;
+}
+
+.CommentList_metadata {
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+
+.CommentList_body {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.accordion-body {
+  margin-top: 8px;
+  padding-bottom: 10px;
+}
+
+hr {
+  color: var(--lightBlue);
+  background-color: var(--darkBlue);
+  height: 2px !important;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 /* Media Queries  */

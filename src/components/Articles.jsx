@@ -142,7 +142,7 @@ const Articles = ({topicsList}) => {
                                         <p className="Card_intro">{shortBody}</p>
                                         <p className="Card_metadata">
                                             <span role="img" aria-label="Written by"><PersonFill className="Card_metadata-icon"/></span> {article.author} 
-                                            <span className="Card_metadata-date"><span role="img" aria-label="Date"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
+                                            <span className="Card_metadata-date"><span role="img" aria-label="Date" className="Card_date-icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
                                             </p> 
                                         <p className="Card_interactions">
                                              <span role="img" aria-label="Number of comments"><ChatLeftText className="Card_interactions-icon" /></span> {article.comment_count} 
