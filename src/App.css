@@ -42,7 +42,13 @@ h1 {
 
 .navbar-nav {
   margin-left: 20px !important;
-  font-size: 1.3em;
+}
+
+.navbar-nav > a {
+  text-decoration: none;
+  color: var(--darkBlue);
+  font-size: 0.9em;
+  line-height: 1.9;
 }
 
 .navbar-nav > a:hover {
