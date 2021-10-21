@@ -447,7 +447,7 @@ hr {
 
   .Nav_links > * {
     color: var(--ghostWhite) !important;
-    font-size: 0.9em !important;
+    font-size: 0.7em !important;
     text-decoration: none;
     font-weight: 600;
     padding: 0 10px;
