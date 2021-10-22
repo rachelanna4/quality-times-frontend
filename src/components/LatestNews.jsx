@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as api from '../utils/api';
 import Carousel from 'react-bootstrap/Carousel'
 import { PersonFill } from 'react-bootstrap-icons';
@@ -7,9 +7,7 @@ import { PersonFill } from 'react-bootstrap-icons';
 
 const LatestNews = () => {
   const [latestNews, setLatestNews] = useState([])
-  const [selectedArticle, setSelectedArticle] = useState("")
   const [isError, setIsError] = useState(false);
-  const history = useHistory();
 
   useEffect(() => {
       setIsError(false);
@@ -21,13 +19,6 @@ const LatestNews = () => {
           setIsError(true);
         });
       }, [])
-
-  useEffect(() => {
-      if (selectedArticle) {
-      history.push(`/articles/${selectedArticle}`)
-      }
-      setSelectedArticle('');
-    }, [selectedArticle, history]);
 
     return (
         <section className="LatestNews">
@@ -51,10 +42,9 @@ const LatestNews = () => {
           <Carousel className="Carousel">
            {latestNews.map((article) => {
               return (
-                  <Carousel.Item key={article.article_id}
-                                 onClick={(e) => {
-                                         setSelectedArticle(article.article_id)
-                                         }}>
+                
+                  <Carousel.Item key={article.article_id}>
+                     <Link to ={`/articles/${article.article_id}`}>
                      <img
                         src="./images/background1.png"
                         alt={article.article_id}
@@ -64,7 +54,9 @@ const LatestNews = () => {
                         <h3>{article.title}</h3>
                         <p><span role="img" aria-label="Written by"><PersonFill/></span> {article.author}</p>
                     </Carousel.Caption>
+                    </Link>
                   </Carousel.Item>
+                  
                 )
             })}
           </Carousel>
