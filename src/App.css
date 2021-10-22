@@ -156,6 +156,7 @@ h1 {
   width: 80vw;
   height: 135px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .TopicsGallery_container > h3 {
@@ -202,7 +203,9 @@ h1 {
 
 .Login > button,
 .PageNotFound > button,
-.PostArticleLogin > button {
+.PostArticleLogin > button,
+.PostArticleSubmit > button,
+.alert > button {
   margin-top: 20px;
   padding: 5px 15px;
   border-radius: 10px;
@@ -546,6 +549,44 @@ hr {
   padding: 0.8rem 0.8rem;
   font-size: 0.8em;
   text-align: center;
+}
+
+/* Post Article Page */
+
+.PostArticle-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.PostArticleIntro > h4 {
+  margin-top: 10px;
+  color: var(--darkBlue);
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.PostArticleForm-container {
+  margin-top: 20px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.PostArticleSubmit {
+  text-align: center;
+}
+
+.PostArticleSubmit > button {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 0.8em;
+}
+
+.alert > button > a {
+  color: var(--ghostWhite);
+  text-decoration: none;
 }
 
 /* Media Queries  */
