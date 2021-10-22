@@ -538,6 +538,13 @@ hr {
   font-weight: 700;
 }
 
+.alert {
+  margin-top: 20px;
+  padding: 0.8rem 0.8rem;
+  font-size: 0.8em;
+  text-align: center;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 768px) {
@@ -764,5 +771,14 @@ hr {
 
   .active {
     display: inline;
+  }
+
+  /* Single Article Page - Comments Section */
+
+  .alert {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 0.8rem 0.8rem;
+    font-size: 0.9em;
   }
 }
