@@ -41,7 +41,7 @@ export const patchArticleVotes = async (article_id, voteChange) => {
 };
 
 export const postComment = async (article_id, user, commentInput) => {
-  const commentRequest = { username: user, body: commentInput };
+  const commentRequest = { username: user, body: commentInput.trim() };
 
   const { data } = await newsApi.post(
     `/articles/${article_id}/comments`,
@@ -52,7 +52,12 @@ export const postComment = async (article_id, user, commentInput) => {
 };
 
 export const postArticle = async (author, title, topic, body) => {
-  const newArticleRequest = { author, title, topic, body };
+  const newArticleRequest = {
+    author,
+    title: title.trim(),
+    topic,
+    body: body.trim(),
+  };
 
   const { data } = await newsApi.post("/articles", newArticleRequest);
 
