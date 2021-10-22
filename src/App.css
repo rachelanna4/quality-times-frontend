@@ -589,6 +589,10 @@ hr {
   text-decoration: none;
 }
 
+.alert > p {
+  margin-bottom: 0;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 768px) {
@@ -825,5 +829,31 @@ hr {
     max-width: 400px;
     padding: 0.8rem 0.8rem;
     font-size: 0.9em;
+  }
+
+  /* Post Article Page */
+
+  .PostArticle-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 280px auto;
+    grid-template-areas:
+      "intro form"
+      "alert form";
+
+    grid-column-gap: 20px;
+  }
+
+  .PostArticleIntro > h4 {
+    grid-area: intro;
+  }
+
+  .PostArticleForm-container {
+    margin: 10px;
+    grid-area: form;
+  }
+
+  .PostArticle-container > alert {
+    grid-area: alert;
   }
 }

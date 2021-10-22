@@ -8,7 +8,7 @@ import Alert from 'react-bootstrap/Alert'
 const PostArticle = ({topicsList}) => {
     const { user, setUser, isLoggedIn} = useContext(UserContext); 
     const [articleTitle, setArticleTitle] = useState(""); 
-    const [articleTopic, setArticleTopic] = useState("default");
+    const [articleTopic, setArticleTopic] = useState("");
     const [articleBody, setArticleBody] = useState("");
     const [newArticleId, setNewArticleId] = useState(null); 
     const [isPostError, setIsPostError] = useState(false)
@@ -21,7 +21,7 @@ const PostArticle = ({topicsList}) => {
         .then((createdArticleId) => {
             setNewArticleId(createdArticleId)
             setArticleTitle("");
-            setArticleTopic("default");
+            setArticleTopic("");
             setArticleBody("");
             setIsPostSuccessful(true);
         })
@@ -42,70 +42,72 @@ const PostArticle = ({topicsList}) => {
             </section>
         </RequiresGuest>
         <RequiresLogin isLoggedIn={isLoggedIn}>
-            <section>
-            <h4>Fill in the form to post your article</h4>
-            {isPostSuccessful && 
-                <Alert variant="success">
-                  Article successfully posted!
-                  <button>
-                    <Link to={`/articles/${newArticleId}`} >Go to article</Link>
-                    </button>
-                </Alert>
-             }
-             {isPostError && 
-                <Alert variant="danger">
-                  Unable to post article. <br />
-                  Please try again later.
-                </Alert>
-             }
-             </section>
-            <section className="PostArticleForm-container">
-                 <Form onSubmit={(e) => {
-                        e.preventDefault();
-                        postArticle();
-                        }}>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Author:</Form.Label>
-                        <Form.Control type="text" placeholder={user} readOnly />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Topic:</Form.Label>
-                        <Form.Select value={articleTopic}
-                                    onChange={(e) => {
-                                    setArticleTopic(e.target.value);
+            <section className="PostArticle-container">
+                <section className="PostArticleIntro">
+                <h4>Fill in the form to post your article:</h4>
+                {isPostSuccessful && 
+                    <Alert variant="success">
+                    <p>Article successfully posted!</p>
+                    <button>
+                        <Link to={`/articles/${newArticleId}`} >Go to article</Link>
+                        </button>
+                    </Alert>
+                }
+                {isPostError && 
+                    <Alert variant="danger">
+                    Unable to post article. <br />
+                    Please try again later.
+                    </Alert>
+                }
+                </section>
+                <section className="PostArticleForm-container">
+                    <Form onSubmit={(e) => {
+                            e.preventDefault();
+                            postArticle();
+                            }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Author:</Form.Label>
+                            <Form.Control type="text" placeholder={user} readOnly />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Topic:</Form.Label>
+                            <Form.Select value={articleTopic}
+                                        required
+                                        onChange={(e) => {
+                                        setArticleTopic(e.target.value);
 
-                                     }}>
-                            <option disabled value="default" >Select topic</option>
-                            {topicsList.map((topic) => {
-                                return (
-                                    <option key={topic.slug}>{topic.slug}</option>
-                                )
-                            })}
-                        </Form.Select>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Title:</Form.Label>
-                        <Form.Control type="text" value={articleTitle}
-                                      required
-                                      maxLength={100}
-                                      onChange={(e) => {
-                                     setArticleTitle(e.target.value)
-                                     }} />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Content</Form.Label>
-                        <Form.Control as="textarea" rows={7} value={articleBody} 
-                                      required
-                                      onChange={(e) => {
-                                      setArticleBody(e.target.value)
-                                      }}/>
-                    </Form.Group>
-                    <section className="PostArticle_button-container">
-                         <button type="submit" className="PostArticle_button">Post Article</button>
-                    </section>
-                </Form>
+                                        }}>
+                                <option disabled value="" >Select topic</option>
+                                {topicsList.map((topic) => {
+                                    return (
+                                        <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
+                                    )
+                                })}
+                            </Form.Select>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Title:</Form.Label>
+                            <Form.Control type="text" value={articleTitle}
+                                        required
+                                        maxLength={100}
+                                        onChange={(e) => {
+                                        setArticleTitle(e.target.value)
+                                        }} />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Content:</Form.Label>
+                            <Form.Control as="textarea" rows={7} value={articleBody} 
+                                        required
+                                        onChange={(e) => {
+                                        setArticleBody(e.target.value)
+                                        }}/>
+                        </Form.Group>
+                        <section className="PostArticleSubmit">
+                            <button type="submit">Post Article</button>
+                        </section>
+                    </Form>
+                </section>
             </section>
-            
         </RequiresLogin>
         </>
     );
