@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# The Quality Times News Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Click here to access the website].
+[Click here to access the API](https://the-quality-times.herokuapp.com/api).
+[Click here to see the API repository](https://github.com/rachelanna4/the-quality-times)
 
-## Available Scripts
+## Background
 
-In the project directory, you can run:
+I built 'The Quality Times' website during my time on the Northcoders software development bootcamp course.
 
-### `npm start`
+The website is designed to interact with the backend API that I had previously built. It was developed using React in JavaScript and HTML and styled using CSS and React Bootstrap.
+The website allows users to search and filter news articles, interact by voting and adding comments, and to post their own articles.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Local Development Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The guide below will give you all the setup information you need to view this project 'behind the scenes' and, should you wish to, will enable you to make your own contributions.
 
-### `npm test`
+### Pre-requisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Install Node.js which acts as the runtime environment for this project. This should also install npm to manage all of the  
+   required dependencies.
 
-### `npm run build`
+  [Follow this link to download Node.js with npm](https://nodejs.org/en/download/current/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Minimum version recommended: Node v16.8.0
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Clone Repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To clone the repository for access on your local machine, run the following command in your terminal:
 
-### `npm run eject`
+`git clone https://github.com/rachelanna4/quality-times-frontend.git`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Install Dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the folder to which the repository was cloned and run the following command in your terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`npm install`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This will install all necessary dependencies used in the project, such as React, Axios, and React Bootstrap.
 
-## Learn More
+### Run Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the website on your local machine, run the following command in the terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm start`
 
-### Code Splitting
+The website should then load in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When this command is running, the website should also be locally accessible through this link - [Click here to access the local website](http://localhost:3000/).
