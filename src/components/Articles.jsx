@@ -119,27 +119,25 @@ const Articles = ({topicsList}) => {
                             shortBody += article.body.split(" ").slice(0, 20).join(" ") + "..."
 
                             return (
-                              <Link to={`/articles/${article.article_id}`} className="Card">
-                                <Card 
-                                      key={article.article_id}
-                                      >
+                              <Link to={`/articles/${article.article_id}`} className="Card" key={article.article_id}>
+                                <Card >
                                 <Card.Img className="Card_img" variant="top" src={background} />
                                 <Card.ImgOverlay className="Card_overlay">
                                     <h3 className="Card_title">{article.title.toLowerCase()}</h3>
                                 </Card.ImgOverlay>
                                 <Card.Body className="Card_body">
-                                  <Card.Text>
+                                  <section>
                                        <p className={`Card_topic Card_topic-${article.topic}`}>{article.topic}</p>
                                         <p className="Card_intro">{shortBody}</p>
                                         <p className="Card_metadata">
                                             <span role="img" aria-label="Written by"><PersonFill className="Card_metadata-icon"/></span> {article.author} 
                                             <span className="Card_metadata-date"><span role="img" aria-label="Date" className="Card_date-icon"><Calendar/></span> {new Date(article.created_at).toLocaleDateString("en-GB")}</span>
-                                            </p> 
+                                        </p> 
                                         <p className="Card_interactions">
                                              <span role="img" aria-label="Number of comments"><ChatLeftText className="Card_interactions-icon" /></span> {article.comment_count} 
                                             <span className="Card_interactions-starCount"> <span role="img" aria-label="Number of stars" className="Card_interactions-starIcon"><StarFill /></span> {article.votes}</span>
                                         </p> 
-                                  </Card.Text>
+                                  </section>
                                   <Button className="Card_button" 
                                           variant="primary"
                                   >Read full article  <ArrowRightCircle /></Button>
