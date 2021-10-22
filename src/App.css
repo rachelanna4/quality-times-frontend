@@ -183,7 +183,8 @@ h1 {
 
 .Login,
 .PageNotFound,
-.PostArticleLogin {
+.PostArticleLogin,
+.SingleArticle-error {
   margin-top: 50px;
   padding: 20px 50px;
   text-align: center;
@@ -191,18 +192,21 @@ h1 {
 
 .Login > h4,
 .PageNotFound > h4,
-.PostArticleLogin > h4 {
+.PostArticleLogin > h4,
+.SingleArticle-error > h4 {
   font-size: 1.4em;
 }
 
 .Login > h5,
-.PageNotFound > h5 {
+.PageNotFound > h5,
+.SingleArticle-error > h5 {
   margin-top: 20px;
   font-size: 1.2em;
 }
 
 .Login > button,
 .PageNotFound > button,
+.SingleArticle-error > button,
 .PostArticleLogin > button,
 .PostArticleSubmit > button,
 .alert > button {
@@ -215,7 +219,8 @@ h1 {
   font-size: 1.1em;
 }
 
-.PageNotFound button > * {
+.PageNotFound button > a,
+.SingleArticle-error button > a {
   color: var(--ghostWhite);
   text-decoration: none;
 }
@@ -694,7 +699,8 @@ hr {
 
   .Login,
   .PageNotFound,
-  .PostArticleLogin {
+  .PostArticleLogin,
+  .SingleArticle-error {
     margin-top: 100px;
   }
 
@@ -789,10 +795,6 @@ hr {
 
   .ArticleBody {
     line-height: 1.8;
-  }
-
-  .SingleArticle-error {
-    margin-top: 60px;
   }
 
   /* Single Article Page - Votes Section */

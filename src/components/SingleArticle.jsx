@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams} from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 import * as api from '../utils/api'; 
 import StarArticle from "./StarArticle";
 import Comments from "./Comments";
@@ -25,8 +25,11 @@ const SingleArticle = () => {
         <> 
             {isArticleError ? (
             <section className="SingleArticle-error">
-                <p>Oops! Something went wrong and we can't find the article</p>
-                <p>Try again later</p>
+                <h4>Oops! It doesn't look like this article exists</h4>
+                <h5>View all available articles here:</h5>
+                <button>
+                    <Link to={`/articles`}> Go to articles </Link>
+                </button>
             </section>
             ): (
             <section className="SingleArticle">
