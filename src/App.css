@@ -1,5 +1,6 @@
 :root {
   --darkBlue: #495867;
+  --midBlue: #577399;
   --lightBlue: #bdd5ea;
   --orangeRed: #fe5f55;
   --ghostWhite: #f7f7ff;
@@ -284,7 +285,7 @@ h1 {
 }
 
 .Card_header {
-  background-color: var(--darkBlue);
+  background-color: var(--midBlue);
   color: var(--ghostWhite);
   min-height: 100px;
   display: flex;

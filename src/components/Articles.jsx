@@ -113,8 +113,6 @@ const Articles = ({topicsList}) => {
                     </form>
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
-                            let background = "/images/background1.png"
-                            
                             let shortBody = ""; 
                             shortBody += article.body.split(" ").slice(0, 20).join(" ") + "..."
 
