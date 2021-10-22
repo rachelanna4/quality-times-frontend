@@ -4,7 +4,7 @@
 
 [Click here to access the API](https://the-quality-times.herokuapp.com/api).
 
-[Click here to see the API repository](https://github.com/rachelanna4/the-quality-times)
+[Click here to see the API repository](https://github.com/rachelanna4/the-quality-times-backend)
 
 ## Background
 
@@ -30,7 +30,7 @@ The guide below will give you all the setup information you need to view this pr
 
 To clone the repository for access on your local machine, run the following command in your terminal:
 
-`git clone https://github.com/rachelanna4/quality-times-frontend.git`
+`git clone https://github.com/rachelanna4/the-quality-times-frontend.git`
 
 ### Install Dependencies
 
