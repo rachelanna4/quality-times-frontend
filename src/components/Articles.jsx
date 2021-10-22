@@ -119,12 +119,12 @@ const Articles = ({topicsList}) => {
                             shortBody += article.body.split(" ").slice(0, 20).join(" ") + "..."
 
                             return (
-                              <Link to={`/articles/${article.article_id}`} className="Card" key={article.article_id}>
+                              <Link to={`/articles/${article.article_id}`} className="Card_container" key={article.article_id}>
                                 <Card >
-                                <Card.Img className="Card_img" variant="top" src={background} />
-                                <Card.ImgOverlay className="Card_overlay">
-                                    <h3 className="Card_title">{article.title.toLowerCase()}</h3>
-                                </Card.ImgOverlay>
+                                <section className="Card_header">
+                                  <h3 className="Card_title">{article.title.toLowerCase()}</h3>
+                                </section>
+                                
                                 <Card.Body className="Card_body">
                                   <section>
                                        <p className={`Card_topic Card_topic-${article.topic}`}>{article.topic}</p>
