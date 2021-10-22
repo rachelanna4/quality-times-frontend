@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import * as api from '../utils/api'; 
 
-const TopicsGallery = ({topics, isTopicError}) => {
+const TopicsGallery = () => {
+  const [topicsList, setTopicsList] = useState([]);
+  const [isTopicsListError, setIsTopicsListError] = useState(false);
+
+  useEffect(() => {
+    setIsTopicsListError(false);
+    api
+      .getTopics()
+      .then((topicsFromApi) => {
+        setTopicsList(topicsFromApi);
+      })
+      .catch(() => {
+        setIsTopicsListError(true);
+      });
+  }, []);
 
     return (
        <>
-          {isTopicError ? (
+          {isTopicsListError ? (
             <section className="TopicsGallery-error">
             <p>Oops! Something went wrong loading the topics</p>
             <p>Try again later</p>
@@ -14,7 +29,7 @@ const TopicsGallery = ({topics, isTopicError}) => {
             <section className="TopicsGallery">
             <h3>Browse topics:</h3>
             <ul>
-              {topics.map((topic) => {
+              {topicsList.map((topic) => {
                 return (
                   <Link to={`/articles/topics/${topic.slug}`} className="TopicLinks" key={topic.slug}>
                     <li >

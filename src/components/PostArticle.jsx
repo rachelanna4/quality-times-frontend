@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
 import Form from 'react-bootstrap/Form'; 
 import Alert from 'react-bootstrap/Alert'
 
-const PostArticle = ({topicsList}) => {
+const PostArticle = () => {
     const { user, setUser, isLoggedIn} = useContext(UserContext); 
     const [articleTitle, setArticleTitle] = useState(""); 
     const [articleTopic, setArticleTopic] = useState("");
@@ -13,6 +13,15 @@ const PostArticle = ({topicsList}) => {
     const [newArticleId, setNewArticleId] = useState(null); 
     const [isPostError, setIsPostError] = useState(false)
     const [isPostSuccessful, setIsPostSuccessful] = useState(false)
+    const [topicsList, setTopicsList] = useState([]);
+
+    useEffect(() => {
+        api
+        .getTopics()
+        .then((topicsFromApi) => {
+            setTopicsList(topicsFromApi);
+        })
+    }, []);
 
     const postArticle = () => {
         setIsPostError(false)

@@ -10,25 +10,8 @@ import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
 import PageNotFound from "./components/PageNotFound";
-import { useState, useEffect } from "react";
-import * as api from "./utils/api";
 
 function App() {
-  const [topics, setTopics] = useState([]);
-  const [isTopicError, setIsTopicError] = useState(false);
-
-  useEffect(() => {
-    setIsTopicError(false);
-    api
-      .getTopics()
-      .then((topicsFromApi) => {
-        setTopics(topicsFromApi);
-      })
-      .catch(() => {
-        setIsTopicError(true);
-      });
-  }, []);
-
   return (
     <>
       <Header />
@@ -36,22 +19,22 @@ function App() {
       <Switch>
         <Route exact path="/">
           <LatestNews />
-          <TopicsGallery topics={topics} isTopicError={isTopicError} />
+          <TopicsGallery />
         </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/articles">
-          <Articles topicsList={topics} />
+          <Articles />
         </Route>
         <Route exact path="/articles/topics/:topic">
-          <Articles topicsList={topics} />
+          <Articles />
         </Route>
         <Route exact path="/articles/:article_id">
           <SingleArticle />
         </Route>
         <Route exact path="/post-article">
-          <PostArticle topicsList={topics} />
+          <PostArticle />
         </Route>
         <Route path="*">
           <PageNotFound />

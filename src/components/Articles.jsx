@@ -8,18 +8,28 @@ import Pagination from 'react-bootstrap/Pagination';
 import { PersonFill, Calendar, ArrowRightCircle, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
 
-const Articles = ({topicsList}) => {
+const Articles = () => {
     const [allArticles, setAllArticles] = useState([])
     const [isError, setIsError] = useState(false);
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [selectedSortBy, setSelectedSortBy] = useState("")
     const [tabPath, setTabPath]= useState("");
+    const [topicsList, setTopicsList] = useState([]);
     const { topic } = useParams();
     const history = useHistory();
 
-    useEffect(() => {
+    
 
+    useEffect(() => {
+        api
+          .getTopics()
+          .then((topicsFromApi) => {
+            setTopicsList(topicsFromApi);
+          })
+      }, []);
+
+    useEffect(() => {
         const queries = {topic, currPage}
 
         if(selectedSortBy) {
@@ -81,8 +91,10 @@ const Articles = ({topicsList}) => {
                 </section>
                 ) : (
                     <section>
+                     { topicsList.length > 0 &&
                       <Tabs defaultActiveKey={topic ? `/topics/${topic}` : '/'} id="uncontrolled-tab-example" className="mb-3" 
                             onSelect={(eventKey) => {
+                              console.log('tab event ', eventKey)
                               setTabPath(eventKey)
                             }} >
                         <Tab eventKey="/" title="all articles"/>
@@ -92,6 +104,7 @@ const Articles = ({topicsList}) => {
                           )
                         })}
                       </Tabs>
+                    }
                     <form className="Sort">
                         <select
                         className="Sort_dropdown"
