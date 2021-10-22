@@ -48,4 +48,6 @@ To run the website on your local machine, run the following command in the termi
 
 The website should then load in your browser.
 
-When this command is running, the website should also be locally accessible through this link - [Click here to access the local website](http://localhost:3000/).
+When this command is running, the website should also be locally accessible through this link:
+
+[Click here to access the local website](http://localhost:3000/).
