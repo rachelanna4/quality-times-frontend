@@ -443,16 +443,16 @@ h1 {
 
 .SingleArticle_columns-leftBottom {
   margin: 5px;
-  display: inline-flex;
   width: 60%;
-  justify-content: space-between;
 }
 
 .SingleArticle_columns-leftBottom > p {
+  display: inline;
   margin-top: 5px;
 }
 
 .StarLoginButton {
+  margin-left: 20px;
   height: 30px;
   padding: 0 10px;
   border-radius: 10px;
@@ -462,9 +462,12 @@ h1 {
   font-size: 0.8em;
 }
 
+.ArticleStars {
+  margin: 0;
+}
+
 .StarButton {
-  margin-right: 80px;
-  height: 10px;
+  margin-left: 15px;
   padding: 0 10px;
   border-radius: 10px;
   border: none;
@@ -810,7 +813,6 @@ hr {
   }
 
   .StarButton {
-    margin-right: 75px;
     font-size: 1.2em;
   }
 
