@@ -181,14 +181,16 @@ h1 {
 /* Login Page and 404 Page Not Found */
 
 .Login,
-.PageNotFound {
+.PageNotFound,
+.PostArticleLogin {
   margin-top: 50px;
   padding: 20px 50px;
   text-align: center;
 }
 
 .Login > h4,
-.PageNotFound > h4 {
+.PageNotFound > h4,
+.PostArticleLogin > h4 {
   font-size: 1.4em;
 }
 
@@ -199,7 +201,8 @@ h1 {
 }
 
 .Login > button,
-.PageNotFound > button {
+.PageNotFound > button,
+.PostArticleLogin > button {
   margin-top: 20px;
   padding: 5px 15px;
   border-radius: 10px;
@@ -637,7 +640,8 @@ hr {
   /* Login Page */
 
   .Login,
-  .PageNotFound {
+  .PageNotFound,
+  .PostArticleLogin {
     margin-top: 100px;
   }
 
