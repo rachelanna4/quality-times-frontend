@@ -59,7 +59,7 @@ function App() {
           <EditComment />
         </Route>
         <Route exact path="/post-article">
-          <PostArticle />
+          <PostArticle topicsList={topics} />
         </Route>
         <Route path="*">
           <PageNotFound />

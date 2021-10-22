@@ -50,3 +50,11 @@ export const postComment = async (article_id, user, commentInput) => {
 
   return data.comment;
 };
+
+export const postArticle = async (author, title, topic, body) => {
+  const newArticleRequest = { author, title, topic, body };
+
+  const { data } = await newsApi.post("/articles", newArticleRequest);
+
+  return data.article.article_id;
+};
