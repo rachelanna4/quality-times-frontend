@@ -7,7 +7,7 @@ import { PersonFill, Calendar } from 'react-bootstrap-icons';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
-    const [article, setArticle] = useState("")
+    const [article, setArticle] = useState({})
     const [isArticleError, setIsArticleError] = useState(false);
 
     useEffect(() => {
