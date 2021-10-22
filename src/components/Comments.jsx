@@ -9,7 +9,7 @@ const Comments = ({article_id, comment_count}) => {
     const [comments, setComments] = useState([])
     const [isCommentsError, setIsCommentsError] = useState(false);
 
-    useEffect(() => {
+    const downloadComments = () => {
         setIsCommentsError(false);
         api.getCommentsByArticle(article_id)
         .then((commentsFromApi) => {
@@ -18,6 +18,10 @@ const Comments = ({article_id, comment_count}) => {
         .catch(() => {
             setIsCommentsError(true);
         });
+    } 
+
+    useEffect(() => {
+       downloadComments();
     }, [ article_id])
 
 
@@ -68,7 +72,7 @@ const Comments = ({article_id, comment_count}) => {
                                         )
                                     })}
                                      <Accordion.Body >
-                                                <PostComment />
+                                                <PostComment article_id={article_id} downloadComments={downloadComments} />
                                      </Accordion.Body>
                                 
                                 </Accordion.Item>

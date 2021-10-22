@@ -514,6 +514,30 @@ hr {
   margin-bottom: 0;
 }
 
+.form-label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--darkBlue);
+  margin-bottom: 10px;
+}
+
+.CommentLoginButton-container,
+.PostComment_button-container {
+  width: 100%;
+  text-align: center;
+}
+
+.CommentLoginButton,
+.PostComment_button {
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--orangeRed);
+  color: var(--ghostWhite);
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
 /* Media Queries  */
 
 @media screen and (min-width: 768px) {

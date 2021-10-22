@@ -27,7 +27,9 @@ export const getSingleArticle = async (article_id) => {
 };
 
 export const getCommentsByArticle = async (article_id) => {
-  const { data } = await newsApi.get(`/articles/${article_id}/comments`);
+  const { data } = await newsApi.get(`/articles/${article_id}/comments`, {
+    params: { limit: 50 },
+  });
   return data;
 };
 
@@ -36,4 +38,15 @@ export const patchArticleVotes = async (article_id, voteChange) => {
 
   const { data } = await newsApi.patch(`/articles/${article_id}`, patchRequest);
   return data.votes;
+};
+
+export const postComment = async (article_id, user, commentInput) => {
+  const commentRequest = { username: user, body: commentInput };
+
+  const { data } = await newsApi.post(
+    `/articles/${article_id}/comments`,
+    commentRequest
+  );
+
+  return data.comment;
 };
