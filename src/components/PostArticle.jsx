@@ -79,8 +79,11 @@ const PostArticle = ({topicsList}) => {
                                         }}>
                                 <option disabled value="" >Select topic</option>
                                 {topicsList.map((topic) => {
+                                    const firstLetter = topic.slug[0].toUpperCase()
+                                    const restOfTopic = topic.slug.slice(1)
+                                    const capitalisedTopic = firstLetter + restOfTopic;
                                     return (
-                                        <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
+                                        <option key={topic.slug} value={topic.slug}>{capitalisedTopic}</option>
                                     )
                                 })}
                             </Form.Select>
