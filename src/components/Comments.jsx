@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
+import PostComment from './PostComment';
 
 
 const Comments = ({article_id, comment_count}) => {
@@ -49,7 +50,7 @@ const Comments = ({article_id, comment_count}) => {
                                     </Accordion.Header>
                                     {comments.map((comment) => {
                                         return (
-                                            <Accordion.Body >
+                                            <Accordion.Body key={comment.comment_id}>
                                                 <section className="CommentList_metadata">
                                                     <p>
                                                         <span role="img" aria-label="Date" className="CommentDate_icon"><Calendar/></span> &nbsp;&nbsp;{new Date(comment.created_at).toLocaleDateString("en-GB")}
@@ -66,6 +67,9 @@ const Comments = ({article_id, comment_count}) => {
                                             </Accordion.Body>
                                         )
                                     })}
+                                     <Accordion.Body >
+                                                <PostComment />
+                                     </Accordion.Body>
                                 
                                 </Accordion.Item>
                                 </Accordion>

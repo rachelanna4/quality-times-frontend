@@ -16,8 +16,8 @@ const TopicsGallery = ({topics, isTopicError}) => {
             <ul>
               {topics.map((topic) => {
                 return (
-                  <Link to={`/articles/topics/${topic.slug}`} className="TopicLinks">
-                    <li key={topic.slug}>
+                  <Link to={`/articles/topics/${topic.slug}`} className="TopicLinks" key={topic.slug}>
+                    <li >
                       <section className="TopicsGallery_container">
                         <img 
                           src={`/images/${topic.slug}.jpg`}
