@@ -66,7 +66,6 @@ const Comments = ({article_id, comment_count}) => {
                                                     <section className="CommentList_body">
                                                     <p>"{comment.body}"</p>
                                                 </section>
-                                                <p>Votes: {comment.votes}</p>
                                                 <hr />
                                             </Accordion.Body>
                                         )
