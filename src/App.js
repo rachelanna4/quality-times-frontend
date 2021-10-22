@@ -52,12 +52,6 @@ function App() {
         <Route exact path="/articles/:article_id">
           <SingleArticle />
         </Route>
-        <Route exact path="/articles/:article_id/post-comment">
-          <PostComment />
-        </Route>
-        <Route exact path="/articles/:article_id/edit-comment">
-          <EditComment />
-        </Route>
         <Route exact path="/post-article">
           <PostArticle topicsList={topics} />
         </Route>
