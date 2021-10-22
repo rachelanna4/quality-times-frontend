@@ -9,8 +9,6 @@ import TopicsGallery from "./components/TopicsGallery";
 import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
-import PostComment from "./components/PostComment";
-import EditComment from "./components/EditComment";
 import PageNotFound from "./components/PageNotFound";
 import { useState, useEffect } from "react";
 import * as api from "./utils/api";
