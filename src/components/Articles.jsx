@@ -48,12 +48,12 @@ const Articles = () => {
     let paginationItems = [];
     for (let number = 1; number <= totalPages; number++) {
     paginationItems.push(
-    <Pagination.Item key={number} active={number === active} onClick={() => setCurrPage(number)}>
-      {number}
-    </Pagination.Item>,
-  );
-  }
-  
+      <Pagination.Item key={number} active={number === active} onClick={() => setCurrPage(number)}>
+        {number}
+      </Pagination.Item>,
+    );
+    }
+
     if (isLoading) {
       return (
         <section className="Loading-page" >
