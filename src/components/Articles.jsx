@@ -15,14 +15,14 @@ const Articles = () => {
     const [isError, setIsError] = useState(false);
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [selectedSortBy, setSelectedSortBy] = useState("");
+    const [selectedSortBy, setSelectedSortBy] = useState("default");
     const { topic } = useParams();
 
     useEffect(() => {
 
         const queries = {topic, currPage}
 
-        if(selectedSortBy) {
+        if(selectedSortBy !== "default") {
         const sortQuery = selectedSortBy.split(":")
         queries.sort_by = sortQuery[0];
         queries.order = sortQuery[1];
@@ -86,7 +86,7 @@ const Articles = () => {
                 ) : (
                     <section>
                     <ArticleTabs topic={topic}/>
-                    <SortArticles sortBy={selectedSortBy} setSelectedSortBy={setSelectedSortBy} />
+                    <SortArticles selectedSortBy={selectedSortBy} setSelectedSortBy={setSelectedSortBy} />
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
                             let shortBody = ""; 
