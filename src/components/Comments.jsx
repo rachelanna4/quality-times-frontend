@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import PulseLoader from "react-spinners/PulseLoader"
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
@@ -6,10 +7,12 @@ import PostComment from './PostComment';
 
 
 const Comments = ({article_id, comment_count}) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [comments, setComments] = useState([])
     const [isCommentsError, setIsCommentsError] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         setIsCommentsError(false);
         api.getCommentsByArticle(article_id)
         .then((commentsFromApi) => {
@@ -17,7 +20,10 @@ const Comments = ({article_id, comment_count}) => {
         })
         .catch(() => {
             setIsCommentsError(true);
-        });
+        })
+        .finally(() => {
+            setIsLoading(false);
+        })
     }, [article_id])
 
     const handlePostedComment = (postedComment) => {
@@ -26,6 +32,13 @@ const Comments = ({article_id, comment_count}) => {
 
     }
 
+    if (isLoading) {
+        return (
+          <section className="Loading-comments" >
+            <PulseLoader color={"#577399"}/>
+          </section>
+        )
+      }
 
     return (
         <section className="SingleArticle_columns-rightBottom">
