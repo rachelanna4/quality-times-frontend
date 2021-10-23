@@ -7,7 +7,7 @@ const TopicsGallery = ({setIsTopicsGalleryLoading, isLoading}) => {
   const [isTopicsListError, setIsTopicsListError] = useState(false);
 
   useEffect(() => {
-    // setIsTopicsGalleryLoading(true)
+    setIsTopicsGalleryLoading(true)
     setIsTopicsListError(false);
     api
       .getTopics()
