@@ -14,7 +14,7 @@ const SortArticles = ({selectedSortBy, setSelectedSortBy}) => {
                     setSelectedSortBy(e.target.value);
                 }}
                 >
-                    <option value="" disabled>Sort articles by:</option>
+                    <option value="" selected disabled>Sort articles by:</option>
                     <option value="created_at:desc">Newest</option>
                     <option value="created_at:asc">Oldest</option>
                     <option value="comment_count:desc">Most Comments</option>
