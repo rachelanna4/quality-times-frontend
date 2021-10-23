@@ -86,7 +86,7 @@ const Articles = () => {
                 </section>
                 ) : (
                     <section>
-                    <ArticleTabs topic={topic}/>
+                    <ArticleTabs topic={topic} setCurrPage={setCurrPage}/>
                     <SortArticles selectedSortBy={selectedSortBy} setSelectedSortBy={setSelectedSortBy} />
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {

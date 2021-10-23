@@ -4,7 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import * as api from '../utils/api'; 
 
-const ArticleTabs = ({topic}) => {
+const ArticleTabs = ({topic, setCurrPage}) => {
 const [topicsList, setTopicsList] = useState([]);
 const [tabPath, setTabPath]= useState("");
 const history = useHistory();
@@ -19,10 +19,11 @@ useEffect(() => {
 
   useEffect(() => {
     if (tabPath) {
+    setCurrPage(1)
     history.push(`/articles${tabPath}`)
     }
     setTabPath ('');
-    },  [tabPath, history]);
+    },  [tabPath, history, setCurrPage]);
 
     return (
         <>
