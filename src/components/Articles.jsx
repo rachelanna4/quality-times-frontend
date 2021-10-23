@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link} from 'react-router-dom';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab'
+import { useParams, Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import { PersonFill, Calendar, ArrowRightCircle, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
 import SortArticles from './SortArticles';
+import ArticleTabs from './ArticleTabs';
 
 const Articles = () => {
     const [allArticles, setAllArticles] = useState([])
@@ -15,20 +14,9 @@ const Articles = () => {
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [selectedSortBy, setSelectedSortBy] = useState("")
-    const [tabPath, setTabPath]= useState("");
-    const [topicsList, setTopicsList] = useState([]);
     const { topic } = useParams();
-    const history = useHistory();
+   
 
-    
-
-    useEffect(() => {
-        api
-          .getTopics()
-          .then((topicsFromApi) => {
-            setTopicsList(topicsFromApi);
-          })
-      }, []);
 
     useEffect(() => {
         const queries = {topic, currPage}
@@ -50,12 +38,7 @@ const Articles = () => {
         });
     }, [topic, currPage, selectedSortBy])
 
-    useEffect(() => {
-        if (tabPath) {
-        history.push(`/articles${tabPath}`)
-        }
-        setTabPath ('');
-    },  [tabPath, history]);
+   
 
     let active = currPage;
     let paginationItems = [];
@@ -92,20 +75,7 @@ const Articles = () => {
                 </section>
                 ) : (
                     <section>
-                     { topicsList.length > 0 &&
-                      <Tabs defaultActiveKey={topic ? `/topics/${topic}` : '/'} id="uncontrolled-tab-example" className="mb-3" 
-                            onSelect={(eventKey) => {
-                              console.log('tab event ', eventKey)
-                              setTabPath(eventKey)
-                            }} >
-                        <Tab eventKey="/" title="all articles"/>
-                        {topicsList.map((topic) => {
-                          return (
-                            <Tab className={`Tab ${topic.slug}`} key={`${topic.slug}`} eventKey={`/topics/${topic.slug}`} title={`${topic.slug}`}/>
-                          )
-                        })}
-                      </Tabs>
-                    }
+                    <ArticleTabs topic={topic}/>
                     <SortArticles sortBy={selectedSortBy} setSelectedSortBy={setSelectedSortBy} />
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
