@@ -10,7 +10,7 @@ const LatestNews = ({setIsLatestNewsLoading, isLoading}) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-      // setIsLatestNewsLoading(true)
+      setIsLatestNewsLoading(true)
       setIsError(false);
       api.getArticles({sort_by: "created_at", order: "desc", limit: 3})
       .then((articlesFromApi) => {
