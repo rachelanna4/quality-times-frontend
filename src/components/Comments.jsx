@@ -3,28 +3,45 @@ import PulseLoader from "react-spinners/PulseLoader"
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
+import Pagination from 'react-bootstrap/Pagination';
 import PostComment from './PostComment';
 
 
 const Comments = ({article_id, comment_count}) => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isFirstLoad, setIsFirstLoad] = useState(true)
+    const [isPageLoading, setIsPageLoading] = useState(true);
     const [comments, setComments] = useState([])
     const [isCommentsError, setIsCommentsError] = useState(false);
+    const [currPage, setCurrPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
-        setIsLoading(true);
+
+        setIsPageLoading(true);
         setIsCommentsError(false);
-        api.getCommentsByArticle(article_id)
+        api.getCommentsByArticle(article_id, currPage)
         .then((commentsFromApi) => {
             setComments(commentsFromApi.comments)
+            setTotalPages(Math.ceil(commentsFromApi.total_count / 10))
         })
         .catch(() => {
             setIsCommentsError(true);
         })
         .finally(() => {
-            setIsLoading(false);
+            setIsPageLoading(false);
+            setIsFirstLoad(false);
         })
-    }, [article_id])
+    }, [article_id, currPage])
+
+    let active = currPage;
+    let paginationItems = [];
+    for (let number = 1; number <= totalPages; number++) {
+    paginationItems.push(
+        <Pagination.Item key={number} active={number === active} onClick={() => setCurrPage(number)}>
+        {number}
+        </Pagination.Item>,
+     );
+    }
 
     const handlePostedComment = (postedComment) => {
         const commentsCopy = [...comments, postedComment]; 
@@ -32,7 +49,7 @@ const Comments = ({article_id, comment_count}) => {
 
     }
 
-    if (isLoading) {
+    if (isFirstLoad) {
         return (
           <section className="Loading-comments" >
             <PulseLoader color={"#577399"}/>
@@ -85,8 +102,11 @@ const Comments = ({article_id, comment_count}) => {
                                             </Accordion.Body>
                                         )
                                     })}
+                                    <Accordion.Body >
+                                        <Pagination className="Pages">{paginationItems}</Pagination>
+                                     </Accordion.Body>
                                      <Accordion.Body >
-                                                <PostComment article_id={article_id} handlePostedComment={handlePostedComment} />
+                                         <PostComment article_id={article_id} handlePostedComment={handlePostedComment} />
                                      </Accordion.Body>
                                 
                                 </Accordion.Item>

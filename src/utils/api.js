@@ -7,9 +7,8 @@ const newsApi = axios.create({
 export const getArticles = async (queries) => {
   const page = queries.currPage || 1;
   const limit = queries.limit || 9;
-  const offset = limit * page - limit;
 
-  const newQueries = { ...queries, page, limit, offset };
+  const newQueries = { ...queries, page, limit };
 
   const { data } = await newsApi.get("/articles", { params: newQueries });
 
@@ -26,10 +25,11 @@ export const getSingleArticle = async (article_id) => {
   return data.article;
 };
 
-export const getCommentsByArticle = async (article_id) => {
+export const getCommentsByArticle = async (article_id, currPage) => {
   const { data } = await newsApi.get(`/articles/${article_id}/comments`, {
-    params: { limit: 50 },
+    params: { page: currPage, limit: 10 },
   });
+
   return data;
 };
 

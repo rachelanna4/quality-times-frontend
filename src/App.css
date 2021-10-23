@@ -403,6 +403,7 @@ h1 {
 
 .Pages {
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .page-item .page-link {
@@ -573,6 +574,8 @@ hr {
 .PostComment_button-container {
   width: 100%;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .CommentLoginButton,
