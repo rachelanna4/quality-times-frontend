@@ -77,8 +77,8 @@ const PostComment = ({article_id, handlePostedComment}) => {
         }
         {isPostCommentError && 
                 <Alert variant="danger">
-                  Unable to post comment. <br />
-                  Please try again later.
+                  Unable to post comment <br />
+                  Please try again later
                 </Alert>
         }
         </>
