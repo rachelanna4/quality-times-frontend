@@ -13,6 +13,7 @@ const PostArticle = () => {
     const [articleTopic, setArticleTopic] = useState("");
     const [articleBody, setArticleBody] = useState("");
     const [newArticleId, setNewArticleId] = useState(null); 
+    const [isPosting, setIsPosting] = useState(false);
     const [isPostError, setIsPostError] = useState(false)
     const [isPostSuccessful, setIsPostSuccessful] = useState(false)
     const [topicsList, setTopicsList] = useState([]);
@@ -30,6 +31,7 @@ const PostArticle = () => {
     }, []);
 
     const postArticle = () => {
+        setIsPosting(true)
         setIsPostError(false)
         setIsPostSuccessful(false)
         api.postArticle(user, articleTitle, articleTopic, articleBody)
@@ -42,6 +44,9 @@ const PostArticle = () => {
         })
         .catch(() => {
             setIsPostError(true)
+        })
+        .finally(() => {
+            setIsPosting(false)
         })
     }
 
@@ -121,9 +126,15 @@ const PostArticle = () => {
                                         setArticleBody(e.target.value)
                                         }}/>
                         </Form.Group>
-                        <section className="PostArticleSubmit">
+                        <section className={`PostArticleSubmit ${isPosting ? "Hidden" : ""}`}>
                             <button type="submit">Post Article</button>
                         </section>
+                        {isPosting && (
+                            <section className="Loading-postArticle" >
+                                <PulseLoader color={"#577399"}/>
+                            </section>
+                        )
+                        }
                     </Form>
                 </section>
             </section>

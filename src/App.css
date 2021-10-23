@@ -13,9 +13,17 @@ body {
 
 /* Loading Components */
 
-.Loading-page {
+.Loading-page,
+.Loading-postArticle {
   text-align: center;
+}
+
+.Loading-page {
   margin-top: 90px;
+}
+
+.Loading-postArticle {
+  margin-top: 20px;
 }
 
 .Hidden {
