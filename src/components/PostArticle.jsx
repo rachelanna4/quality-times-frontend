@@ -75,8 +75,8 @@ const PostArticle = () => {
                 }
                 {isPostError && 
                     <Alert variant="danger">
-                    Unable to post article. <br />
-                    Please try again later.
+                    Unable to post article <br />
+                    Please try again later
                     </Alert>
                 }
                 </section>
