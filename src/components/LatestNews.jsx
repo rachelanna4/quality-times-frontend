@@ -5,11 +5,12 @@ import Carousel from 'react-bootstrap/Carousel'
 import { PersonFill } from 'react-bootstrap-icons';
 
 
-const LatestNews = () => {
+const LatestNews = ({setIsLatestNewsLoading, isLoading}) => {
   const [latestNews, setLatestNews] = useState([])
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+      // setIsLatestNewsLoading(true)
       setIsError(false);
       api.getArticles({sort_by: "created_at", order: "desc", limit: 3})
       .then((articlesFromApi) => {
@@ -17,11 +18,14 @@ const LatestNews = () => {
       })
       .catch(() => {
           setIsError(true);
-        });
-      }, [])
+        })
+      .finally(() => {
+        setIsLatestNewsLoading(false)
+      })
+      }, [setIsLatestNewsLoading])
 
     return (
-        <section className="LatestNews">
+        <section className={`LatestNews ${isLoading ? 'Hidden' : ''}`}>
         {isError ? (
             <Carousel className="Carousel Carousel-error">
                <Carousel.Item>

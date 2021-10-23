@@ -11,9 +11,15 @@ body {
   background-color: var(--ghostWhite);
 }
 
+/* Loading Components */
+
 .Loading-page {
   text-align: center;
   margin-top: 90px;
+}
+
+.Hidden {
+  display: none;
 }
 
 /* Header */

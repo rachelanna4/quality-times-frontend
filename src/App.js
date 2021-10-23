@@ -4,8 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Navigation from "./components/Nav";
 import Login from "./components/Login";
-import LatestNews from "./components/LatestNews";
-import TopicsGallery from "./components/TopicsGallery";
+import Homepage from "./components/Homepage";
 import Articles from "./components/Articles";
 import SingleArticle from "./components/SingleArticle";
 import PostArticle from "./components/PostArticle";
@@ -18,8 +17,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/">
-          <LatestNews />
-          <TopicsGallery />
+          <Homepage />
         </Route>
         <Route exact path="/login">
           <Login />

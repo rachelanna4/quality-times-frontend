@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as api from '../utils/api'; 
 
-const TopicsGallery = () => {
+const TopicsGallery = ({setIsTopicsGalleryLoading, isLoading}) => {
   const [topicsList, setTopicsList] = useState([]);
   const [isTopicsListError, setIsTopicsListError] = useState(false);
 
   useEffect(() => {
+    // setIsTopicsGalleryLoading(true)
     setIsTopicsListError(false);
     api
       .getTopics()
@@ -15,11 +16,14 @@ const TopicsGallery = () => {
       })
       .catch(() => {
         setIsTopicsListError(true);
-      });
-  }, []);
+      })
+      .finally(() => {
+        setIsTopicsGalleryLoading(false)
+      })
+  }, [setIsTopicsGalleryLoading]);
 
     return (
-       <>
+       <section className={isLoading ? 'Hidden' : ''}>
           {isTopicsListError ? (
             <section className="TopicsGallery-error">
             <p>Oops! Something went wrong loading the topics</p>
@@ -49,7 +53,7 @@ const TopicsGallery = () => {
             </ul>
             </section>
         )}
-        </>
+        </section>
     );
 };
 
