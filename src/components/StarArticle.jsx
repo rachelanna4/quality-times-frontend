@@ -5,9 +5,12 @@ import * as api from '../utils/api';
 
 const StarArticle = ({article_id, star_count}) => {
     const { setUser, isLoggedIn} = useContext(UserContext);
+    const [isLoading, setIsLoading] = useState(false);
     const [starChange, setStarChange] = useState(false); 
     
     const handleStarChange = () => {
+        setIsLoading(true); 
+
         let currentStarState = starChange
         let voteChange = 0
         voteChange = currentStarState ?  1 : -1
@@ -16,7 +19,10 @@ const StarArticle = ({article_id, star_count}) => {
         api.patchArticleVotes(article_id, voteChange)
         .catch(() => {
            setStarChange(currentStarState)
-        });
+        })
+        .finally(() => {
+            setIsLoading(false);
+        })
     }
 
     return (
@@ -33,6 +39,7 @@ const StarArticle = ({article_id, star_count}) => {
             </RequiresGuest>
             <RequiresLogin isLoggedIn={isLoggedIn}>
                 <button className="StarButton" 
+                            disabled={isLoading}
                             onClick={ () => {
                             handleStarChange();
                         }}>

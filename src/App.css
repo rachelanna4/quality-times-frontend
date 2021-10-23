@@ -511,6 +511,10 @@ h1 {
   font-size: 1.2em;
 }
 
+.StarButton:disabled {
+  color: rgb(171, 171, 171);
+}
+
 .StarThumb {
   display: none;
 }
