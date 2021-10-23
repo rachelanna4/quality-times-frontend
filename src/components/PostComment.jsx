@@ -1,19 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
+import PulseLoader from "react-spinners/PulseLoader"
 import Form from 'react-bootstrap/Form'; 
 import Alert from 'react-bootstrap/Alert'
 
 
 const PostComment = ({article_id, handlePostedComment}) => {
     const { user, setUser, isLoggedIn} = useContext(UserContext); 
+    const [isPosting, setIsPosting] = useState(false);
     const [commentInput, setCommentInput] = useState(""); 
     const [isPostCommentError, setIsPostCommentError] = useState(false); 
     const [isCommentPosted, setIsCommentPosted] = useState(false)
 
     const handlePostRequest = () => {
-        setIsPostCommentError(false)
-        setIsCommentPosted(false)
+        setIsPosting(true);
+        setIsPostCommentError(false);
+        setIsCommentPosted(false);
         api.postComment(article_id, user, commentInput)
         .then((newComment) => {
             handlePostedComment(newComment)
@@ -22,6 +25,9 @@ const PostComment = ({article_id, handlePostedComment}) => {
         })
         .catch(() => {
             setIsPostCommentError(true);
+        })
+        .finally(() => {
+            setIsPosting(false);
         })
     }
 
@@ -52,9 +58,15 @@ const PostComment = ({article_id, handlePostedComment}) => {
                                  setCommentInput(e.target.value)
                                  }}/>
                 </Form.Group>
-                <section className="PostComment_button-container">
+                <section className={`PostComment_button-container ${isPosting ? "Hidden" : ""}`}>
                     <button type="submit" className="PostComment_button">Post Comment</button>
                 </section>
+                {isPosting && (
+                            <section className="Loading-post" >
+                                <PulseLoader color={"#577399"}/>
+                            </section>
+                        )
+                 }
             </Form>
             </section>
         </RequiresLogin>
