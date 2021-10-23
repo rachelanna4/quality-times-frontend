@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link} from 'react-router-dom';
+import PulseLoader from "react-spinners/PulseLoader"
 import * as api from '../utils/api'; 
 import StarArticle from "./StarArticle";
 import Comments from "./Comments";
 import { PersonFill, Calendar } from 'react-bootstrap-icons';
 
 const SingleArticle = () => {
-    const {article_id} = useParams()
-    const [article, setArticle] = useState({})
+    const {article_id} = useParams();
+    const [isLoading, setIsLoading] = useState(true);
+    const [article, setArticle] = useState({});
     const [isArticleError, setIsArticleError] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true)
         setIsArticleError(false);
         api.getSingleArticle(article_id)
         .then((articleFromApi) => {
@@ -18,8 +21,19 @@ const SingleArticle = () => {
         })
         .catch(() => {
             setIsArticleError(true);
-        });
+        })
+        .finally(() => {
+            setIsLoading(false);
+        })
     }, [article_id])
+
+    if (isLoading) {
+        return (
+          <section className="Loading-page" >
+            <PulseLoader color={"#577399"}/>
+          </section>
+        )
+      }
 
     return (
         <> 
