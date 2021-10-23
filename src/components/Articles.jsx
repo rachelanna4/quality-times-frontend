@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link} from 'react-router-dom';
+import PulseLoader from "react-spinners/PulseLoader"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
@@ -9,6 +10,7 @@ import SortArticles from './SortArticles';
 import ArticleTabs from './ArticleTabs';
 
 const Articles = () => {
+    const [isLoading, setIsLoading] = useState(true)
     const [allArticles, setAllArticles] = useState([])
     const [isError, setIsError] = useState(false);
     const [currPage, setCurrPage] = useState(1);
@@ -19,6 +21,7 @@ const Articles = () => {
 
 
     useEffect(() => {
+
         const queries = {topic, currPage}
 
         if(selectedSortBy) {
@@ -26,7 +29,8 @@ const Articles = () => {
         queries.sort_by = sortQuery[0];
         queries.order = sortQuery[1];
         }
-
+        
+        setIsLoading(true)
         setIsError(false);
         api.getArticles(queries)
         .then((dataFromApi) => {
@@ -35,6 +39,9 @@ const Articles = () => {
         })
         .catch(() => {
             setIsError(true);
+            
+        }).finally(() => {
+          setIsLoading(false);
         });
     }, [topic, currPage, selectedSortBy])
 
@@ -49,7 +56,13 @@ const Articles = () => {
     </Pagination.Item>,
   );
 }
-
+    if (isLoading) {
+      return (
+        <section className="Loading-page" >
+          <PulseLoader color={"#577399"}/>
+        </section>
+      )
+    }
 
     return (
             <>

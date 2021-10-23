@@ -11,6 +11,11 @@ body {
   background-color: var(--ghostWhite);
 }
 
+.Loading-page {
+  text-align: center;
+  margin-top: 90px;
+}
+
 /* Header */
 
 .Header {
@@ -610,6 +615,10 @@ hr {
 /* Media Queries  */
 
 @media screen and (min-width: 768px) {
+  .Loading-page {
+    margin-top: 200px;
+  }
+
   h1 {
     font-size: 3em;
   }
