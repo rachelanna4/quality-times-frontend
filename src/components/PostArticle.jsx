@@ -130,7 +130,7 @@ const PostArticle = () => {
                             <button type="submit">Post Article</button>
                         </section>
                         {isPosting && (
-                            <section className="Loading-postArticle" >
+                            <section className="Loading-post" >
                                 <PulseLoader color={"#577399"}/>
                             </section>
                         )

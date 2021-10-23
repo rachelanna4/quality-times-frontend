@@ -14,7 +14,7 @@ body {
 /* Loading Components */
 
 .Loading-page,
-.Loading-postArticle,
+.Loading-post,
 .Loading-comments {
   text-align: center;
 }
@@ -23,7 +23,7 @@ body {
   margin-top: 90px;
 }
 
-.Loading-postArticle {
+.Loading-post {
   margin-top: 20px;
 }
 
