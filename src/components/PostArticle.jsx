@@ -2,11 +2,13 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
+import PulseLoader from "react-spinners/PulseLoader"
 import Form from 'react-bootstrap/Form'; 
 import Alert from 'react-bootstrap/Alert'
 
 const PostArticle = () => {
     const { user, setUser, isLoggedIn} = useContext(UserContext); 
+    const [isTopicsLoading, setIsTopicsLoading] = useState(true);
     const [articleTitle, setArticleTitle] = useState(""); 
     const [articleTopic, setArticleTopic] = useState("");
     const [articleBody, setArticleBody] = useState("");
@@ -16,10 +18,14 @@ const PostArticle = () => {
     const [topicsList, setTopicsList] = useState([]);
 
     useEffect(() => {
+        setIsTopicsLoading(true)
         api
         .getTopics()
         .then((topicsFromApi) => {
             setTopicsList(topicsFromApi);
+        })
+        .finally(() => {
+            setIsTopicsLoading(false)
         })
     }, []);
 
@@ -81,6 +87,7 @@ const PostArticle = () => {
                         <Form.Group className="mb-3">
                             <Form.Label>Topic:</Form.Label>
                             <Form.Select value={articleTopic}
+                                        disabled={isTopicsLoading}
                                         required
                                         onChange={(e) => {
                                         setArticleTopic(e.target.value);
