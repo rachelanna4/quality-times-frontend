@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState} from 'react';
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
@@ -9,7 +9,7 @@ const Comments = ({article_id, comment_count}) => {
     const [comments, setComments] = useState([])
     const [isCommentsError, setIsCommentsError] = useState(false);
 
-    const downloadComments = useCallback(() => {
+    useEffect(() => {
         setIsCommentsError(false);
         api.getCommentsByArticle(article_id)
         .then((commentsFromApi) => {
@@ -20,9 +20,11 @@ const Comments = ({article_id, comment_count}) => {
         });
     }, [article_id])
 
-    useEffect(() => {
-       downloadComments();
-    }, [downloadComments])
+    const handlePostedComment = (postedComment) => {
+        const commentsCopy = [...comments, postedComment]; 
+        setComments(commentsCopy)
+
+    }
 
 
     return (
@@ -71,7 +73,7 @@ const Comments = ({article_id, comment_count}) => {
                                         )
                                     })}
                                      <Accordion.Body >
-                                                <PostComment article_id={article_id} downloadComments={downloadComments} />
+                                                <PostComment article_id={article_id} handlePostedComment={handlePostedComment} />
                                      </Accordion.Body>
                                 
                                 </Accordion.Item>

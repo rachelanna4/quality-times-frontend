@@ -5,18 +5,18 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert'
 
 
-const PostComment = ({article_id, downloadComments}) => {
+const PostComment = ({article_id, handlePostedComment}) => {
     const { user, setUser, isLoggedIn} = useContext(UserContext); 
     const [commentInput, setCommentInput] = useState(""); 
     const [isPostCommentError, setIsPostCommentError] = useState(false); 
     const [isCommentPosted, setIsCommentPosted] = useState(false)
 
-    const handlePostComment = () => {
+    const handlePostRequest = () => {
         setIsPostCommentError(false)
         setIsCommentPosted(false)
         api.postComment(article_id, user, commentInput)
-        .then(() => {
-            downloadComments()
+        .then((newComment) => {
+            handlePostedComment(newComment)
             setCommentInput("")
             setIsCommentPosted(true)
         })
@@ -41,7 +41,7 @@ const PostComment = ({article_id, downloadComments}) => {
         <section className="PostCommentForm">
             <Form onSubmit={(e) => {
                         e.preventDefault();
-                        handlePostComment();
+                        handlePostRequest();
                 }}>
                 <Form.Group className="mb-3" >
                     <Form.Label>{user} leave a comment here:</Form.Label>
