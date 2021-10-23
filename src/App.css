@@ -15,7 +15,8 @@ body {
 
 .Loading-page,
 .Loading-post,
-.Loading-comments {
+.Loading-comments,
+.Loading-commentPage {
   text-align: center;
 }
 
@@ -23,7 +24,8 @@ body {
   margin-top: 90px;
 }
 
-.Loading-post {
+.Loading-post,
+.Loading-commentPage {
   margin-top: 20px;
 }
 
