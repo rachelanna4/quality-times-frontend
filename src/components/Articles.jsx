@@ -52,7 +52,8 @@ const Articles = () => {
       {number}
     </Pagination.Item>,
   );
-}
+  }
+  
     if (isLoading) {
       return (
         <section className="Loading-page" >
