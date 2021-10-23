@@ -10,15 +10,13 @@ import SortArticles from './SortArticles';
 import ArticleTabs from './ArticleTabs';
 
 const Articles = () => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [allArticles, setAllArticles] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+    const [allArticles, setAllArticles] = useState([]);
     const [isError, setIsError] = useState(false);
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [selectedSortBy, setSelectedSortBy] = useState("")
+    const [selectedSortBy, setSelectedSortBy] = useState("");
     const { topic } = useParams();
-   
-
 
     useEffect(() => {
 
@@ -45,8 +43,7 @@ const Articles = () => {
         });
     }, [topic, currPage, selectedSortBy])
 
-   
-
+  
     let active = currPage;
     let paginationItems = [];
     for (let number = 1; number <= totalPages; number++) {
