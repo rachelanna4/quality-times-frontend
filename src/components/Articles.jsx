@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
 import { PersonFill, Calendar, ArrowRightCircle, ChatLeftText, StarFill } from 'react-bootstrap-icons';
 import * as api from '../utils/api'; 
+import SortArticles from './SortArticles';
 
 const Articles = () => {
     const [allArticles, setAllArticles] = useState([])
@@ -105,25 +106,7 @@ const Articles = () => {
                         })}
                       </Tabs>
                     }
-                    <form className="Sort">
-                        <select
-                        className="Sort_dropdown"
-                        id="queries"
-                        name="queries"
-                        value={selectedSortBy}
-                        onChange={(e) => {
-                            setSelectedSortBy(e.target.value);
-                        }}
-                        >
-                        <option value="" disabled>Sort articles by:</option>
-                        <option value="created_at:desc">Newest</option>
-                        <option value="created_at:asc">Oldest</option>
-                        <option value="comment_count:desc">Most Comments</option>
-                        <option value="comment_count:asc">Fewest Comments</option>
-                        <option value="votes:desc">Most Stars</option>
-                        <option value="votes:asc">Fewest Stars</option>
-                        </select>
-                    </form>
+                    <SortArticles sortBy={selectedSortBy} setSelectedSortBy={setSelectedSortBy} />
                     <ul className="ArticlesList">
                         {allArticles.map((article, index) => {
                             let shortBody = ""; 
