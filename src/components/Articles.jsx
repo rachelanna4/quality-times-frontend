@@ -122,7 +122,7 @@ const Articles = () => {
                             )
                         })}
                     </ul>
-                    <Pagination className="Pages">{paginationItems}</Pagination>
+                    <Pagination className="ArticlePages">{paginationItems}</Pagination>
                 </section>
                 )}
            </>

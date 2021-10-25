@@ -103,7 +103,7 @@ const Comments = ({article_id, comment_count}) => {
                                         )
                                     })}
                                     <Accordion.Body >
-                                        <Pagination className={`Pages ${isPageLoading ? "Hidden" : ""}`}>{paginationItems}</Pagination>
+                                        <Pagination className={`CommentPages ${isPageLoading ? "Hidden" : ""}`}>{paginationItems}</Pagination>
                                         {isPageLoading && (
                                             <section className="Loading-commentPage" >
                                             <PulseLoader color={"#577399"}/>

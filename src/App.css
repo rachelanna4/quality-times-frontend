@@ -412,13 +412,21 @@ h1 {
   background-color: var(--lightBlue);
 }
 
-.Pages {
+.ArticlePages,
+.CommentPages {
   justify-content: center;
-  margin-bottom: 0;
 }
 
 .page-item .page-link {
   color: var(--darkBlue);
+}
+
+.CommentPages {
+  margin-bottom: 0px;
+}
+
+.ArticlePages {
+  margin-bottom: 40px;
 }
 
 .page-item.active .page-link {
