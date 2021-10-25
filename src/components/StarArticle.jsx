@@ -11,9 +11,9 @@ const StarArticle = ({article_id, star_count}) => {
     const handleStarChange = () => {
         setIsLoading(true); 
 
-        let currentStarState = starChange
-        let voteChange = 0
-        voteChange = currentStarState ?  1 : -1
+        let currentStarState = starChange;
+        let voteChange = 0;
+        voteChange = currentStarState ?  -1 : 1;
         setStarChange(!starChange)
 
         api.patchArticleVotes(article_id, voteChange)
