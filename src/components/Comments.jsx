@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 import PulseLoader from "react-spinners/PulseLoader"
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
@@ -91,9 +92,11 @@ const Comments = ({article_id, comment_count}) => {
                                                     <p>
                                                         <span role="img" aria-label="Date" className="CommentDate_icon"><Calendar/></span> &nbsp;&nbsp;{new Date(comment.created_at).toLocaleDateString("en-GB")}
                                                     </p>
-                                                    <p>
-                                                        <span role="img" aria-label="Written by"><PersonFill className="CommentAuthor_icon"/></span>&nbsp;&nbsp;{comment.author} 
-                                                    </p>
+                                                    <Link to={`/articles/authors/${comment.author}`} className="Author_Link">
+                                                        <p>
+                                                            <span role="img" aria-label="Written by"><PersonFill className="CommentAuthor_icon"/></span>&nbsp;&nbsp;{comment.author} 
+                                                        </p>
+                                                    </Link>
                                                 </section>
                                                     <section className="CommentList_body">
                                                     <p>"{comment.body}"</p>

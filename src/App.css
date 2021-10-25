@@ -489,6 +489,17 @@ h1 {
 
 .ArticleAuthor {
   margin-bottom: 15px;
+  color: var(--darkBlue);
+}
+
+.ArticleAuthor > a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--midBlue);
+}
+
+.ArticleAuthor > a:hover {
+  color: var(--orangeRed);
 }
 
 .ArticleBody {
@@ -576,6 +587,19 @@ h1 {
 .CommentList_body {
   font-size: 0.9em;
   font-style: italic;
+}
+
+.Author_Link {
+  text-decoration: none;
+}
+
+.Author_Link > p {
+  color: var(--midBlue);
+  font-weight: 700;
+}
+
+.Author_Link > p:hover {
+  color: var(--orangeRed);
 }
 
 .accordion-body {

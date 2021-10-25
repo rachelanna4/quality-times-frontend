@@ -28,6 +28,9 @@ function App() {
         <Route exact path="/articles/topics/:topic">
           <Articles />
         </Route>
+        <Route exact path="/articles/authors/:author">
+          <Articles />
+        </Route>
         <Route exact path="/articles/:article_id">
           <SingleArticle />
         </Route>

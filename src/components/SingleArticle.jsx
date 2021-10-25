@@ -55,7 +55,9 @@ const SingleArticle = () => {
                             <span role="img" aria-label="Date" className="ArticleDate_icon"><Calendar/></span>&nbsp;&nbsp;{new Date(article.created_at).toLocaleDateString("en-GB")}
                         </p>
                         <p className="ArticleAuthor">
+                            <Link to={`/articles/authors/${article.author}`}> 
                             <span role="img" aria-label="Written by"><PersonFill className="ArticleAuthor_icon"/></span>&nbsp;&nbsp;{article.author}
+                            </Link> 
                         </p>
                     </section>
                         <section className="SingleArticle_columns-right">
