@@ -1,5 +1,5 @@
 import React, { useContext, useState} from 'react';
-import { StarFill, HandThumbsUp, HandThumbsUpFill} from 'react-bootstrap-icons';
+import { HeartFill, HandThumbsUp, HandThumbsUpFill} from 'react-bootstrap-icons';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
 
@@ -29,7 +29,7 @@ const VoteComments = ({comment_id, votes}) => {
         <section className="Votes_container">
             <section>
                 <p className="CommentVotes">
-                    <span role="img" aria-label="Number of stars"><StarFill className="CommentVotes_icon" /></span>&nbsp;&nbsp;{votes + (voteChange ? 1 : 0)}
+                    <span role="img" aria-label="Number of likes"><HeartFill className={`${votes > 0 ? "RedHeart" : "BlackHeart"}`} /></span>&nbsp;&nbsp;{votes + (voteChange ? 1 : 0)}
                 </p>
             </section>
             <RequiresGuest isLoggedIn={isLoggedIn}>

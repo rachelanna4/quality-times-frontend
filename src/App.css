@@ -403,8 +403,7 @@ h1 {
 }
 
 .Card_interactions-starIcon,
-.ArticleStars_icon,
-.CommentVotes_icon {
+.ArticleStars_icon {
   color: #e9c46a;
 }
 
@@ -615,7 +614,20 @@ h1 {
 .Votes_container {
   display: inline-flex;
   margin-top: 5px;
+  margin-left: 10px;
   align-items: center;
+}
+
+.VoteLoginButton {
+  margin-bottom: 15px;
+}
+
+.RedHeart {
+  color: red;
+}
+
+.BlackHeart {
+  color: black;
 }
 
 .ThumbUpButton {
