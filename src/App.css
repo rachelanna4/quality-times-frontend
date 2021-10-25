@@ -403,7 +403,8 @@ h1 {
 }
 
 .Card_interactions-starIcon,
-.ArticleStars_icon {
+.ArticleStars_icon,
+.CommentVotes_icon {
   color: #e9c46a;
 }
 
@@ -526,7 +527,8 @@ h1 {
   margin-top: 5px;
 }
 
-.StarLoginButton {
+.StarLoginButton,
+.VoteLoginButton {
   margin-left: 20px;
   height: 30px;
   padding: 0 10px;
@@ -541,7 +543,8 @@ h1 {
   margin: 0;
 }
 
-.StarButton {
+.StarButton,
+.ThumbUpButton {
   margin-left: 15px;
   padding: 0 10px;
   border-radius: 10px;
@@ -551,11 +554,13 @@ h1 {
   font-size: 1.2em;
 }
 
-.StarButton:disabled {
+.StarButton:disabled,
+.ThumbUpButton:disabled {
   color: rgb(171, 171, 171);
 }
 
-.StarThumb {
+.StarThumb,
+.ThumbUp {
   display: none;
 }
 
@@ -605,6 +610,17 @@ h1 {
 .accordion-body {
   margin-top: 8px;
   padding-bottom: 10px;
+}
+
+.Votes_container {
+  display: inline-flex;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.ThumbUpButton {
+  background-color: white;
+  padding-bottom: 20px;
 }
 
 hr {
@@ -901,10 +917,6 @@ hr {
 
   .StarButton {
     font-size: 1.2em;
-  }
-
-  .StarThumb {
-    display: none;
   }
 
   .active {

@@ -26,30 +26,30 @@ const VoteComments = ({comment_id, votes}) => {
     }
 
     return (
-        <>
-        <section>
-            <p className="CommentStars">
-                <span role="img" aria-label="Number of stars"><StarFill className="CommentStars_icon" /></span>&nbsp;&nbsp;{votes + (voteChange ? 1 : 0)}
-            </p>
-        </section>
-        <RequiresGuest isLoggedIn={isLoggedIn}>
-            <button className="StarLoginButton" 
-                    onClick={ () => {
-                    setUser("jessjelly")
-                }
-                }>Login to vote</button>
-        </RequiresGuest>
-        <RequiresLogin isLoggedIn={isLoggedIn}>
-            <button className="StarButton" 
-                        disabled={isLoading}
+        <section className="Votes_container">
+            <section>
+                <p className="CommentVotes">
+                    <span role="img" aria-label="Number of stars"><StarFill className="CommentVotes_icon" /></span>&nbsp;&nbsp;{votes + (voteChange ? 1 : 0)}
+                </p>
+            </section>
+            <RequiresGuest isLoggedIn={isLoggedIn}>
+                <button className="VoteLoginButton" 
                         onClick={ () => {
-                        handleVoteChange();
-                    }}>
-                <span role="img" aria-label="Thumbs up" className={`StarThumb ${!voteChange ? "active" : ""}`} ><HandThumbsUp /></span>
-                <span role="img" aria-label="Thumbs up" className={`StarThumb ${voteChange ? "active" : ""}`}><HandThumbsUpFill /></span>
-            </button>
-        </RequiresLogin>
-        </>
+                        setUser("jessjelly")
+                    }
+                    }>Login to vote</button>
+            </RequiresGuest>
+            <RequiresLogin isLoggedIn={isLoggedIn}>
+                <button className="ThumbUpButton" 
+                            disabled={isLoading}
+                            onClick={ () => {
+                            handleVoteChange();
+                        }}>
+                    <span role="img" aria-label="Thumbs up" className={`ThumbUp ${!voteChange ? "active" : ""}`} ><HandThumbsUp /></span>
+                    <span role="img" aria-label="Thumbs up" className={`ThumbUp ${voteChange ? "active" : ""}`}><HandThumbsUpFill /></span>
+                </button>
+            </RequiresLogin>
+        </section>
     );
 };
 
