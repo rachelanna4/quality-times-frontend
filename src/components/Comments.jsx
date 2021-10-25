@@ -4,7 +4,8 @@ import PulseLoader from "react-spinners/PulseLoader"
 import * as api from '../utils/api'; 
 import { PersonFill, Calendar, ChatLeftText, } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
-import Pagination from 'react-bootstrap/Pagination';
+import Pagination from 'react-bootstrap/Pagination'
+import VoteComments from './VoteComments';
 import PostComment from './PostComment';
 
 
@@ -101,6 +102,7 @@ const Comments = ({article_id, comment_count}) => {
                                                     <section className="CommentList_body">
                                                     <p>"{comment.body}"</p>
                                                 </section>
+                                                <VoteComments comment_id={comment.comment_id} votes={comment.votes} />
                                                 <hr />
                                             </Accordion.Body>
                                         )

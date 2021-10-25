@@ -40,6 +40,13 @@ export const patchArticleVotes = async (article_id, voteChange) => {
   return data.votes;
 };
 
+export const patchCommentVotes = async (comment_id, voteChange) => {
+  const patchRequest = { inc_votes: voteChange };
+
+  const { data } = await newsApi.patch(`/comments/${comment_id}`, patchRequest);
+  return data.votes;
+};
+
 export const postComment = async (article_id, user, commentInput) => {
   const commentRequest = { username: user, body: commentInput.trim() };
 
