@@ -102,7 +102,7 @@ const Comments = ({article_id, comment_count}) => {
                                                     <section className="CommentList_body">
                                                     <p>"{comment.body}"</p>
                                                 </section>
-                                                <VoteComments comment_id={comment.comment_id} votes={comment.votes} />
+                                                <VoteComments comment_id={comment.comment_id} comment_author={comment.author} votes={comment.votes} />
                                                 <hr />
                                             </Accordion.Body>
                                         )

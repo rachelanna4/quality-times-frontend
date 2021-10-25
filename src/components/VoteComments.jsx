@@ -3,8 +3,8 @@ import { HeartFill, HandThumbsUp, HandThumbsUpFill, HandThumbsDown, HandThumbsDo
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
 
-const VoteComments = ({comment_id, votes}) => {
-    const { setUser, isLoggedIn} = useContext(UserContext);
+const VoteComments = ({comment_id, comment_author, votes}) => {
+    const { user,setUser, isLoggedIn} = useContext(UserContext);
     const [isLoading, setIsLoading] = useState(false);
     const [positiveVoteChange, setPositiveVoteChange] = useState(false); 
     const [negativeVoteChange, setNegativeVoteChange] = useState(false); 
@@ -52,24 +52,28 @@ const VoteComments = ({comment_id, votes}) => {
                     }
                     }>Login to vote</button>
             </RequiresGuest>
+            {(user !== comment_author) && (
             <RequiresLogin isLoggedIn={isLoggedIn}>
-                <button className="ThumbUpButton" 
-                            disabled={isLoading || negativeVoteChange}
-                            onClick={ () => {
-                            handleVoteChange("positive");
-                        }}>
-                    <span role="img" aria-label="Thumbs up" className={`ThumbUp ${!positiveVoteChange ? "active" : ""}`} ><HandThumbsUp /></span>
-                    <span role="img" aria-label="Thumbs up" className={`ThumbUp ${positiveVoteChange ? "active" : ""}`}><HandThumbsUpFill /></span>
-                </button>
-                <button className="ThumbDownButton" 
-                            disabled={isLoading || positiveVoteChange}
-                            onClick={ () => {
-                            handleVoteChange("negative");
-                        }}>
-                    <span role="img" aria-label="Thumbs down" className={`ThumbDown ${!negativeVoteChange ? "active" : ""}`}><HandThumbsDown /></span>
-                    <span role="img" aria-label="Thumbs down" className={`ThumbDown ${negativeVoteChange ? "active" : ""}`}><HandThumbsDownFill /></span>
-                </button>
+                    <section>
+                        <button className="ThumbUpButton" 
+                                    disabled={isLoading || negativeVoteChange}
+                                    onClick={ () => {
+                                    handleVoteChange("positive");
+                                }}>
+                            <span role="img" aria-label="Thumbs up" className={`ThumbUp ${!positiveVoteChange ? "active" : ""}`} ><HandThumbsUp /></span>
+                            <span role="img" aria-label="Thumbs up" className={`ThumbUp ${positiveVoteChange ? "active" : ""}`}><HandThumbsUpFill /></span>
+                        </button>
+                        <button className="ThumbDownButton" 
+                                    disabled={isLoading || positiveVoteChange}
+                                    onClick={ () => {
+                                    handleVoteChange("negative");
+                                }}>
+                            <span role="img" aria-label="Thumbs down" className={`ThumbDown ${!negativeVoteChange ? "active" : ""}`}><HandThumbsDown /></span>
+                            <span role="img" aria-label="Thumbs down" className={`ThumbDown ${negativeVoteChange ? "active" : ""}`}><HandThumbsDownFill /></span>
+                        </button>
+                    </section>
             </RequiresLogin>
+            )}
         </section>
     );
 };
