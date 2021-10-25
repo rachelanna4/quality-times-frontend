@@ -63,7 +63,7 @@ const SingleArticle = () => {
                         <section className="SingleArticle_columns-right">
                         <p className="ArticleBody">{article.body}</p> 
                     </section> 
-                    <StarArticle article_id={article_id} star_count={article.votes} />
+                    <StarArticle article_id={article_id} article_author={article.author} star_count={article.votes} />
                     <Comments article_id={article_id} comment_count={article.comment_count} />    
                 </section>
             </section>

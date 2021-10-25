@@ -3,8 +3,8 @@ import { StarFill, HandThumbsUp, HandThumbsUpFill} from 'react-bootstrap-icons';
 import { UserContext, RequiresLogin, RequiresGuest} from '../contexts/User';
 import * as api from '../utils/api'; 
 
-const StarArticle = ({article_id, star_count}) => {
-    const { setUser, isLoggedIn} = useContext(UserContext);
+const StarArticle = ({article_id, article_author, star_count}) => {
+    const { user, setUser, isLoggedIn} = useContext(UserContext);
     const [isLoading, setIsLoading] = useState(false);
     const [starChange, setStarChange] = useState(false); 
     
@@ -37,6 +37,7 @@ const StarArticle = ({article_id, star_count}) => {
                     }
                     }>Login to star</button>
             </RequiresGuest>
+            {(user !== article_author) && (
             <RequiresLogin isLoggedIn={isLoggedIn}>
                 <button className="StarButton" 
                             disabled={isLoading}
@@ -47,7 +48,10 @@ const StarArticle = ({article_id, star_count}) => {
                     <span role="img" aria-label="Thumbs up" className={`StarThumb ${starChange ? "active" : ""}`}><HandThumbsUpFill /></span>
                 </button>
             </RequiresLogin>
-                    
+            )} 
+            {(user === article_author) && (
+            <p className="ArticleStars-error">Sorry - you can't star your own article</p>
+            )}
         </section>
     );
 };

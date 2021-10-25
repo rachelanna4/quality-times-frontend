@@ -542,6 +542,14 @@ h1 {
   margin: 0;
 }
 
+.ArticleStars-error {
+  display: block !important;
+  margin: 15px auto !important;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--orangeRed);
+}
+
 .StarButton,
 .ThumbUpButton,
 .ThumbDownButton {
