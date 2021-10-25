@@ -16,11 +16,11 @@ const Articles = () => {
     const [currPage, setCurrPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [selectedSortBy, setSelectedSortBy] = useState("default");
-    const { topic } = useParams();
+    const { topic, author } = useParams();
 
     useEffect(() => {
 
-        const queries = {topic, currPage}
+        const queries = {topic, author, currPage}
 
         if(selectedSortBy !== "default") {
         const sortQuery = selectedSortBy.split(":")
@@ -41,7 +41,7 @@ const Articles = () => {
         }).finally(() => {
           setIsLoading(false);
         });
-    }, [topic, currPage, selectedSortBy])
+    }, [topic, author, currPage, selectedSortBy])
 
   
     let active = currPage;
@@ -65,23 +65,21 @@ const Articles = () => {
     return (
             <>
                 {isError ? (
-                <section className="ArticlesList">
-                  <Link to="/" className="Card">
-                    <Card
-                    >
-                    <Card.Img className="Card_img" variant="top" src="/images/background1.png" />
-                    <Card.ImgOverlay className="Card_overlay">
+                <section className="ArticlesList-error">
+                  <Link to="/" className="Card_container">
+                  <Card >
+                      <section className="Card_header">
                         <h3 className="Card_title">Sorry we can't find any articles right now</h3>
-                    </Card.ImgOverlay>
-                    <Card.Body>
-                      <Card.Text>
-                        Please try again later 
-                      </Card.Text>
-                      <Button className="Card_button" 
-                              variant="primary"
-                      >Go back home</Button>
-                    </Card.Body>
-                  </Card>
+                      </section>
+                      
+                      <Card.Body className="Card_body">
+                        <p>Please try again later</p>
+                        <Button className="Card_button" 
+                                variant="primary"
+                     >Go back home
+                        </Button>
+                      </Card.Body>
+                    </Card>
                   </Link>
                 </section>
                 ) : (
