@@ -46,6 +46,15 @@ body {
   text-align: center;
 }
 
+.Header_link {
+  text-decoration: none;
+  color: var(--ghostWhite);
+}
+
+.Header_link:hover {
+  color: var(--ghostWhite);
+}
+
 h1 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
