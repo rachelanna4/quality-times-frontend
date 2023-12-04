@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newsApi = axios.create({
-  baseURL: "https://the-quality-times.herokuapp.com/api",
+  baseURL: "https://the-quality-times-backend.onrender.com/api",
 });
 
 export const getArticles = async (queries) => {
